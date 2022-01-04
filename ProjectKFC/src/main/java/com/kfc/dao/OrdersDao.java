@@ -11,7 +11,7 @@ public interface OrdersDao {
 
 	public Orders delOrder(Orders deleteOrders);
 
-	public Orders updateOrder(Orders updateOrders);
+	public boolean updateOrder(Orders updateOrders);
 
 	public List<Orders> allCart(Orders order1);
 

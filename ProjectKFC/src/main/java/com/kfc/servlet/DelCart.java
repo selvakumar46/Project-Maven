@@ -44,11 +44,11 @@ public class DelCart extends HttpServlet {
 		Orders order=new Orders(0, productId, userId, 0, null);
 		OrdersDaoImpl orderDao=new OrdersDaoImpl();
 		boolean flag=orderDao.delOrderCart(order);
-		System.out.println(flag);
+//		System.out.println(flag);
 		if (flag==true) {
 			
 			response.sendRedirect("mainPage.jsp");
-			System.out.println("Hello");
+			
 		}
 		else {
 			response.sendRedirect("mainPage.jsp");

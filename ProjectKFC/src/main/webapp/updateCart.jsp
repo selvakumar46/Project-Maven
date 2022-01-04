@@ -19,16 +19,19 @@ int userId=(int)session.getAttribute("userId");
 <title>update cart Kfc</title>
 </head>
 <body>
-	<h1>Hi!!!</h1>
+	
 	<h2><%=pName %></h2>
 	<h2><%=userId %></h2>
 	<%if (meal!=null){ %>
 	<form action="upateCart" method="post">
 		<div>
 			Enter how many quantity you want: <input type="number" name="quantity" >
+			<%session.setAttribute("price", meal.getPrice()); %>
+			<%session.setAttribute("productId", meal.getProductId()); %>
 			<button type="submit">Submit</button>
 		</div>
 		<h1><%= meal.getPrice() %></h1>
+		
 	</form>
 	
 	<%} %>

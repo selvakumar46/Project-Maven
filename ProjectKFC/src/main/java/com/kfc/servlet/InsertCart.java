@@ -39,11 +39,15 @@ public class InsertCart extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		PrintWriter pw = response.getWriter();
 		HttpSession session = request.getSession();
-		int productId = Integer.parseInt(session.getAttribute("productId").toString());
+		double price = (double) session.getAttribute("price");
+
+		int productId = (int) session.getAttribute("productId");
+
+//		System.out.println(productId);
 //		int productId=Integer.parseInt(session.getAttribute("productId"));
 		int quantity = Integer.parseInt(request.getParameter("Quantity"));
-		double price = Double.parseDouble(session.getAttribute("price").toString());
-		int userId = (int)session.getAttribute("userId");
+
+		int userId = (int) session.getAttribute("userId");
 		double totalPrice = quantity * price;
 		Orders cart = new Orders(0, productId, userId, quantity, totalPrice);
 		OrdersDaoImpl orderDao = new OrdersDaoImpl();

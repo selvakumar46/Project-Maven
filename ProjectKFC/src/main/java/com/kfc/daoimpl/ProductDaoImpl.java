@@ -102,8 +102,8 @@ public class ProductDaoImpl implements ProductDao {
 		String updateProduct = "update products_kfc set product_status=? where product_name=? ";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
-		System.out.println(products.getProductName());
-		System.out.println(products.getProductStatus());
+//		System.out.println(products.getProductName());
+//		System.out.println(products.getProductStatus());
 		PreparedStatement pstmt;
 		Products products1 = null;
 		try {

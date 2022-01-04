@@ -98,7 +98,7 @@ public class OrdersDaoImpl implements OrdersDao {
 
 	}
 
-	public Orders updateOrder(Orders updateOrders) {
+	public boolean updateOrder(Orders updateOrders) {
 		String update = "update order_kfc set quantity=?, total_price=?  where user_id=? and product_id=?";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
@@ -109,13 +109,14 @@ public class OrdersDaoImpl implements OrdersDao {
 			pstmt.setInt(3, updateOrders.getUserId());
 			pstmt.setInt(4, updateOrders.getProductId());
 			int i = pstmt.executeUpdate();
-			System.out.println(i + "updated successfully...");
+//			System.out.println(i + "updated successfully...");
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		return null;
+		return false;
 
 	}
 
