@@ -16,7 +16,7 @@ import com.kfc.util.ConnectionUtil;
 
 public class OrdersDaoImpl implements OrdersDao {
 
-	public Orders insertOrder(Orders order) {
+	public boolean insertOrder(Orders order) {
 
 		Orders insert = null;
 		String insertOrder = "insert into order_kfc (product_id,user_id,quantity,total_price) values (?,?,?,?)";
@@ -30,22 +30,23 @@ public class OrdersDaoImpl implements OrdersDao {
 			pstmt.setInt(3, order.getQuantity());
 			pstmt.setDouble(4, order.getTotalPrice());
 			int i = pstmt.executeUpdate();
-			System.out.println(i + " Product added to your cart");
+//			System.out.println(i + " Product added to your cart");
 
-			return insert;
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return insert;
+		return false;
 
 	}
 
 	public List<Orders> showOrders(Orders order) {
 		List<Orders> listOfOrders = new ArrayList<Orders>();
 
-		String query = "select pr.product_name,ord.quantity,ord.total_price from products_kfc pr inner join order_kfc ord on ord.product_id=pr.product_id where user_id=?";
+		String query = "select pr.product_name,ord.quantity,ord.total_price,pr.product_id from products_kfc pr inner join order_kfc ord on ord.product_id=pr.product_id where user_id=?";
 //		String query = "select * from order_kfc";
+		Orders orders = null;
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
 //		PreparedStatement stmt = con.prepareStatement(query);
@@ -56,20 +57,23 @@ public class OrdersDaoImpl implements OrdersDao {
 
 			ResultSet rs = cstmt.executeQuery();
 			while (rs.next()) {
-				System.out.format("%-16s%-30s%-12s%-25s%-8s%-16s", "product name=", rs.getString(1), "Quantity=",
-						rs.getInt(2), "Price=", rs.getDouble(3));
-				System.out.println();
+//				System.out.format("%-16s%-30s%-12s%-25s%-8s%-16s", "product name=", rs.getString(1), "Quantity=",
+//						rs.getInt(2), "Price=", rs.getDouble(3));
+//				System.out.println();
 //				Orders order1=new Orders(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDouble(5));
-//						
-//				listOfOrders.add(order1);
+				orders = new Orders(rs.getString(1), rs.getInt(2), rs.getDouble(3),rs.getInt(4));
+						
+				listOfOrders.add(orders);
 //				System.out.println(listOfOrders);
+
 			}
+			return listOfOrders;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		return null;
+		return listOfOrders;
 	}
 
 	public Orders delOrder(Orders deleteOrders) {
@@ -137,7 +141,7 @@ public class OrdersDaoImpl implements OrdersDao {
 		return viewAll;
 	}
 
-	public Orders delOrderCart(Orders deleteOrder) {
+	public boolean delOrderCart(Orders deleteOrder) {
 		Orders orders = new Orders();
 		String delQuery = "delete  from order_kfc where user_id=? and product_id=? ";
 		ConnectionUtil conect = null;
@@ -149,14 +153,16 @@ public class OrdersDaoImpl implements OrdersDao {
 			pstmt.setInt(1, deleteOrder.getUserId());
 			pstmt.setInt(2, deleteOrder.getProductId());
 			int i = pstmt.executeUpdate();
-			System.out.println(i + "delete succesfully");
+//			System.out.println(i + "delete succesfully");
 
-			return orders;
-		} catch (SQLException e) {
+			return true;
+		} 
+		
+		catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return orders;
+		return false;
 
 	}
 }

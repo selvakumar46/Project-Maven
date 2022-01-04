@@ -9,21 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
-import com.kfc.daoimpl.UserDaoImpl;
-import com.kfc.model.User;
+import com.kfc.daoimpl.OrdersDaoImpl;
+import com.kfc.model.Orders;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class InsertCart
  */
-@WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/cart")
+public class InsertCart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public LoginServlet() {
+	public InsertCart() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -37,21 +38,22 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		PrintWriter pw = response.getWriter();
-		String mailId = request.getParameter("mailId");
-		long mobileNumber = Long.parseLong(request.getParameter("mobileNumber"));
-		User user = new User(0, null, mailId, mobileNumber);
-		UserDaoImpl userDao = new UserDaoImpl();
-		User currentUser = userDao.validateUser(user);
-		System.out.println(currentUser.getUserName());
-		if (currentUser != null) {
-			HttpSession session = request.getSession();
-			session.setAttribute("currentUser", currentUser);
-			session.setAttribute("userId", currentUser.getUserId());
-			response.sendRedirect("mainPage.jsp");
-
+		HttpSession session = request.getSession();
+		int productId = Integer.parseInt(session.getAttribute("productId").toString());
+//		int productId=Integer.parseInt(session.getAttribute("productId"));
+		int quantity = Integer.parseInt(request.getParameter("Quantity"));
+		double price = Double.parseDouble(session.getAttribute("price").toString());
+		int userId = (int)session.getAttribute("userId");
+		double totalPrice = quantity * price;
+		Orders cart = new Orders(0, productId, userId, quantity, totalPrice);
+		OrdersDaoImpl orderDao = new OrdersDaoImpl();
+		boolean flag = orderDao.insertOrder(cart);
+		if (flag == true) {
+			response.sendRedirect("showProducts.jsp");
 		} else {
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("mainPage.jsp");
 		}
+
 	}
 
 	/**

@@ -1,3 +1,4 @@
+<%@page import="com.kfc.daoimpl.OrdersDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -7,6 +8,9 @@
 <title>Cart</title>
 </head>
 <body>
-
+	<h1>Hii</h1>
+	
+	
+	
 </body>
 </html>

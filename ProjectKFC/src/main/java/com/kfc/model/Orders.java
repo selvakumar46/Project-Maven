@@ -8,6 +8,7 @@ public class Orders {
 	private int userId;
 	private int quantity;
 	private Double totalPrice;
+	private String productName;
 
 	public int getOrderId() {
 		return orderId;
@@ -48,6 +49,15 @@ public class Orders {
 	public void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+	
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
 
 	public Orders(int orderId, int productId, int userId, int quantity, Double totalPrice) {
 		super();
@@ -67,6 +77,14 @@ public class Orders {
 	public Orders() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public Orders(String productName, int Quantity, double totalPrice,int productId) {
+		// TODO Auto-generated constructor stub
+		this.productName=productName;
+		this.quantity=Quantity;
+		this.totalPrice=totalPrice;
+		this.productId = productId;
 	}
 
 	@Override

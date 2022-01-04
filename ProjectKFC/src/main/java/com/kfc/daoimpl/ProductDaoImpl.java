@@ -32,7 +32,7 @@ public class ProductDaoImpl implements ProductDao {
 //						rs.getDouble(4), "type-", rs.getString(5), "Status-", rs.getString(6));
 //				System.out.println();
 				listOfProducts.add(products);
-				System.out.println(listOfProducts);
+//				System.out.println(listOfProducts);
 			
 			}
 			return listOfProducts;

@@ -13,7 +13,8 @@
 
 </head>
 <body>
-	<%ProductDaoImpl products = new ProductDaoImpl();
+	<%String pName=request.getParameter("pname");
+	ProductDaoImpl products = new ProductDaoImpl();
 	List<Products> showProduct;
 	
 	showProduct = products.showProduct();
@@ -44,7 +45,7 @@
 
 										<span>
 										 
-										<a href="product.jsp" >	<button type="submit"  >Add Cart</button></a>
+										<a href="product.jsp?pname=<%=meals.getProductName() %>" >	<button type="submit"  >Add Cart</button></a>
 									</span></td>
 								</tr>
 							</tbody>
@@ -68,6 +69,7 @@
 			</tr>
 		</tbody>
 	</table>
+	<a href="mainPage.jsp" ><button type="submit">Home</button></a>
 
 
 </body>

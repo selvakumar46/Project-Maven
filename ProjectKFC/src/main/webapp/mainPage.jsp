@@ -92,7 +92,7 @@ body {
 			<input type="text" placeholder="Search your meal">
 			<button type="submit">Search</button>
 			<div class="topnav-right">
-				<a href="">My Cart</a> <a href="login.jsp">Login/Signup</a>
+				<a href="cart.jsp?userId=<%=user.getUserId()%>">My Cart</a> <a href="login.jsp">Login/Signup</a>
 			</div>
 		</div>
 	</div>

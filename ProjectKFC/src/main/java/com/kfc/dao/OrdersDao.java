@@ -5,7 +5,7 @@ import java.util.List;
 import com.kfc.model.Orders;
 
 public interface OrdersDao {
-	public Orders insertOrder(Orders order);
+	public boolean insertOrder(Orders order);
 
 	public List<Orders> showOrders(Orders order);
 
@@ -15,6 +15,6 @@ public interface OrdersDao {
 
 	public List<Orders> allCart(Orders order1);
 
-	public Orders delOrderCart(Orders deleteOrder);
+	public boolean delOrderCart(Orders deleteOrder);
 
 }
