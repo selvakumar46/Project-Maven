@@ -1,0 +1,27 @@
+<%@page import="com.kfc.daoimpl.UserDaoImpl"%>
+<%@page import="com.kfc.servlet.LoginServlet"%>
+<%@page import="com.kfc.model.User"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Welcome KFC</title>
+</head>
+<body>
+	<form action="">
+		<div>
+			<h1>Welcome</h1>
+			<%
+			User user =new User();
+			UserDaoImpl userDao = new UserDaoImpl();
+			userDao.validateUser(user);
+			String name = request.getParameter("name");
+			out.print("welcome " + name);
+			%>
+		</div>
+	</form>
+
+</body>
+</html>

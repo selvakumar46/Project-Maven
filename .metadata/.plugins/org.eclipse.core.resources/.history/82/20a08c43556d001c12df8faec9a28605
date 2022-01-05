@@ -1,0 +1,28 @@
+<%@page import="com.kfc.model.Products"%>
+<%@page import="com.kfc.daoimpl.ProductDaoImpl"%>
+<%@page import="com.kfc.dao.ProductDao"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+      <% String pName = request.getParameter("pname"); 
+  ProductDao productDao = new ProductDaoImpl();
+  int productId=Integer.parseInt(request.getParameter("productId")) ;
+Products product = new Products();
+product.setProductName(pName);
+Products meal = productDao.validateProduct(pName); %>
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>update cart Kfc</title>
+</head>
+<body>
+	<h1>Hi!!!</h1>
+	<h1><%=productId %></h1>
+	<h2><%=pName %></h2>
+	
+	
+	
+</body>
+</html>

@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+   <% int userId=Integer.parseInt(request.getParameter("userId")) ; %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>confirmOrder</title>
+</head>
+<body>
+	<h1>Hii</h1>
+	<h1><%=session.getAttribute("userId") %></h1>
+	Enter Your Address: <input type="submit" name="address" >
+</body>
+</html>
+<% String address = scan.nextLine();
+						int userId = currentUser.getUserId();
+						Orders order1 = new Orders(0, 0, userId, 0, null);
+						List<Orders> allCart = ordDao.allCart(order1);
+
+						for (int i = 0; i < allCart.size(); i++) {
+							System.out.println(allCart.get(i));
+							Orders gets = allCart.get(i);
+
+							int productId = gets.getProductId();
+
+							Products product = new Products(productId, null, null, 0, null, null);
+							Products pro = productDao.validateProduct1(product);
+							String productName = pro.getProductName();
+
+							int cartQuantity = gets.getQuantity();
+
+							double totalPrice = gets.getTotalPrice();
+
+							int userId1 = gets.getUserId();
+
+							CartItem carts = new CartItem(0, productId, userId1, productName, cartQuantity, totalPrice,
+									null, null);
+							cartDao.insertCart(carts);
+							Orders deleteOrder = new Orders(0, productId, userId1, 0, null);
+							ordDao.delOrderCart(deleteOrder);
+
+						}%>

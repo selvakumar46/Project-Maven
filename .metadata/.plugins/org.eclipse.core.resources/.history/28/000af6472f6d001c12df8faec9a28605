@@ -1,0 +1,72 @@
+<%@page import="com.kfc.model.Orders"%>
+<%@page import="com.kfc.daoimpl.OrdersDaoImpl"%>
+<%@page import="java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Cart KFC</title>
+</head>
+<body>
+	<h1>Hi!!!</h1>
+
+	<%
+	
+	int userId=Integer.parseInt(request.getParameter("userId"));
+	OrdersDaoImpl orderDao = new OrdersDaoImpl();
+	Orders order = new Orders();
+	order.setUserId(userId);
+	List<Orders> showOrders;
+	showOrders = orderDao.showOrders(order);
+	
+	%>
+
+  <h1><%=showOrders.size() %></h1>
+    <h1><%=userId %></h1>
+	<%
+	int count = 0;
+	
+	for (Orders cart : showOrders) {
+	%>
+
+	<td>
+		<table id="cartTable">
+			<tbody>
+				<tr>
+
+					<td>
+						<span>productName: <%=cart.getProductName() %></span> 
+						<span>Quantity:<%=cart.getQuantity() %></span><br> 
+						<span> meal Description: <%=cart.getTotalPrice()%></span><br>
+					 	<span> <a href="product.jsp?userId=<%=cart.getUserId()%>">
+									<button type="submit">confirm order</button>
+								</a>
+						</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</td>
+	<%
+	count++;
+
+	if (count == 2) {
+	%>
+	</tr>
+	<tr>
+		<%
+		count = 0;
+
+		}
+		}
+		%>
+
+	</tr>
+	</tbody>
+	</table>
+
+</body>
+</html>

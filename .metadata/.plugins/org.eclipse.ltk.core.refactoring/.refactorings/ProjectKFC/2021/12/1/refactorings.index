@@ -6,3 +6,17 @@
 1640867594278	Rename package 'dao'
 1640923516145	Rename package 'com.kfc.servlet'
 1640923536360	Rename type 'Servlet'
+1640943036075	Rename package 'com.dao'
+1640943059070	Rename package 'com.Daoimpl'
+1640943094873	Rename package 'com.kfc'
+1640943227832	Rename package 'com.model'
+1640943285105	Rename package 'com.kfc.controller'
+1640943412951	Delete element
+1640944990163	Rename package 'com.kfc.Daoimpl'
+1640945000866	Rename package 'com.kfc.Exception'
+1640946515136	Rename type 'ServletUer'
+1640948982885	Delete element
+1640949107779	Rename type 'RegisterServlet'
+1640949138537	Rename type 'ServletRegister'
+1640951237208	Delete element
+1640952470999	Delete element

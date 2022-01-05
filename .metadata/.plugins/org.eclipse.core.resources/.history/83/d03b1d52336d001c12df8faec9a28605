@@ -1,0 +1,44 @@
+<%@page import="com.kfc.model.Products"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@  page import="java.sql.ResultSet" import="com.kfc.daoimpl.*"
+	import="javax.servlet.http.HttpSession"%>
+
+
+
+<%
+String pName = request.getParameter("pname");
+ProductDaoImpl productDao = new ProductDaoImpl();
+Products product = new Products();
+Products meal = productDao.validateProduct(pName);
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>product Details</title>
+</head>
+
+<body>
+	<form action="cart" method="post">
+		<%
+		if (meal != null) {
+		%>
+		<label></label> <b>
+			<h3>
+				<%=meal.getProductName()%>
+			</h3>
+		</b><br> How many Quantity You Want<input type="number"
+			name="Quantity">
+
+		<%
+		session.setAttribute("productId", meal.getProductId());
+		session.setAttribute("price", meal.getPrice());
+		%>
+		<%
+		}
+		%>
+		<button type="submit">submit</button>
+	</form>
+</body>
+</html>

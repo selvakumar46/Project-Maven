@@ -1,0 +1,16 @@
+
+Dec 31, 2021 17:13:32.840 NEW SESSION
+Dec 31, 2021 17:13:32.840 [32848:17684:1231/171332.835:ERROR:chrome_browser_main_extra_parts_metrics.cc(226)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+Dec 31, 2021 17:13:32.840 [32848:17684:1231/171332.835:ERROR:chrome_browser_main_extra_parts_metrics.cc(229)] crbug.com/1216328: Checking Bluetooth availability ended.
+Dec 31, 2021 17:13:32.841 [32848:17684:1231/171332.835:ERROR:chrome_browser_main_extra_parts_metrics.cc(232)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+Dec 31, 2021 17:13:32.842 [32848:17684:1231/171332.839:ERROR:chrome_browser_main_extra_parts_metrics.cc(236)] crbug.com/1216328: Checking default browser status ended.
+Dec 31, 2021 17:13:32.874 [32848:30976:1231/171332.841:ERROR:device_event_log_impl.cc(214)] [17:13:32.841] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+
+Jan 04, 2022 18:31:19.374 NEW SESSION
+Jan 04, 2022 18:31:19.374 [15276:22708:0104/183119.328:ERROR:chrome_browser_main_extra_parts_metrics.cc(226)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+Jan 04, 2022 18:31:19.387 [15276:22708:0104/183119.328:ERROR:chrome_browser_main_extra_parts_metrics.cc(229)] crbug.com/1216328: Checking Bluetooth availability ended.
+Jan 04, 2022 18:31:19.409 [15276:22708:0104/183119.328:ERROR:chrome_browser_main_extra_parts_metrics.cc(232)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+Jan 04, 2022 18:31:19.411 [15276:22708:0104/183119.331:ERROR:chrome_browser_main_extra_parts_metrics.cc(236)] crbug.com/1216328: Checking default browser status ended.
+Jan 04, 2022 18:31:19.412 [15276:12104:0104/183119.332:ERROR:device_event_log_impl.cc(214)] [18:31:19.332] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Jan 04, 2022 18:31:19.412 [15276:12104:0104/183119.332:ERROR:device_event_log_impl.cc(214)] [18:31:19.332] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Jan 04, 2022 18:31:19.413 [15276:12104:0104/183119.333:ERROR:device_event_log_impl.cc(214)] [18:31:19.333] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
