@@ -5,7 +5,7 @@ import java.util.List;
 import com.kfc.model.CartItem;
 
 public interface cartItemDao {
-	public CartItem insertCart(CartItem carts);
+	public boolean insertCart(CartItem carts);
 
 	public CartItem updateStatus(CartItem cart);
 

@@ -68,9 +68,10 @@
 	</tr>
 	</tbody>
 	</table>
-	<span> <a href="product.jsp?userId=<%=order.getUserId()%>">
+	<span> <a href="confirmOrder.jsp?userId=<%=order.getUserId()%>">
 									<button type="submit">confirm order</button>
 								</a>
+								<%session.setAttribute("userId",order.getUserId()); %>
 						</span>
 	
 

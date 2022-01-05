@@ -13,7 +13,7 @@ import com.kfc.util.ConnectionUtil;
 
 public class cartItemDaoImpl implements cartItemDao {
 
-	public CartItem insertCart(CartItem carts) {
+	public boolean insertCart(CartItem carts) {
 		String insert = "insert into cart_items (product_id,user_id,product_name,quantity,total_price)values (?,?,?,?,?)";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
@@ -26,11 +26,14 @@ public class cartItemDaoImpl implements cartItemDao {
 			pstmt.setDouble(5, carts.getTotalPrice());
 			int i = pstmt.executeUpdate();
 			System.out.println(i + "inserted");
+			
+			return true;
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return false;
 	}
 
 	public List<CartItem> showUsers() {

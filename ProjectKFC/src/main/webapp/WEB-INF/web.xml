@@ -46,6 +46,13 @@
 		<servlet-name>CartUpdate</servlet-name>
 		<servlet-class>com.kfc.servlet.CartUpdate</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>InsertOrder</display-name>
+		<servlet-name>InsertOrder</servlet-name>
+		<servlet-class>com.kfc.servlet.InsertOrder</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>LoginServlet</servlet-name>
 		<url-pattern>/LoginServlet</url-pattern>
@@ -69,6 +76,10 @@
 	<servlet-mapping>
 		<servlet-name>CartUpdate</servlet-name>
 		<url-pattern>/CartUpdate</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>InsertOrder</servlet-name>
+		<url-pattern>/InsertOrder</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
