@@ -1,0 +1,5 @@
+package com.kfc.model;
+
+public class Payment {
+
+}

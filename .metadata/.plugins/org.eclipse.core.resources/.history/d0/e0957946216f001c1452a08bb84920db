@@ -1,0 +1,14 @@
+package com.kfc.daoimpl;
+
+import com.kfc.servlet.payment;
+
+public class PaymentDaoImpl {
+	
+	public boolean card(payment) {
+		String query="insert into payments_kfc (user_id,card_number,card_type) values (?,?,?)";
+		
+		
+		return false;
+	}
+	
+}

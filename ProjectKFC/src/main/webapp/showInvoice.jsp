@@ -7,9 +7,15 @@
 <title>Invoice</title>
 </head>
 <body>
-	 <%int userId=(int) session.getAttribute("userId");
+	
 	 
-	 %>
+	 
+	 
+	 <form action="payment.jsp">
+	 <h3>Total Order Amount is:<%=session.getAttribute("totalPrice") %></h3>
+	 
+	 <button type="submit">Pay Now</button>
+	 </form>
 	 
 
 </body>

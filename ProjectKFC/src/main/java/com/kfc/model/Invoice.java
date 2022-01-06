@@ -6,79 +6,70 @@ import java.util.Objects;
 
 public class Invoice {
 	private int invoiceId;
-	private int productId;
+
 	private int userId;
-	private int quantity;
+	private double totalPrice;
 	private String deliveryAdress;
+	
 	private Date orderDate;
-	
-	
-	
-	
+
+	public double getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
 	public int getInvoiceId() {
 		return invoiceId;
 	}
+
 	public void setInvoiceId(int invoiceId) {
 		this.invoiceId = invoiceId;
 	}
-	public int getProductId() {
-		return productId;
-	}
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
+
 	public int getUserId() {
 		return userId;
 	}
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+
 	public String getDeliveryAdress() {
 		return deliveryAdress;
 	}
+
 	public void setDeliveryAdress(String deliveryAdress) {
 		this.deliveryAdress = deliveryAdress;
 	}
+
 	public Date getOrderDate() {
 		return orderDate;
 	}
+
 	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
 	}
-	public Invoice() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Invoice(int invoiceId, int productId, int userId, int quantity, String deliveryAdress,
-			Date orderDate) {
+
+	
+
+	public Invoice(int invoiceId, int userId,double totalPrice, String deliveryAdress,  Date orderDate) {
 		super();
 		this.invoiceId = invoiceId;
-		this.productId = productId;
 		this.userId = userId;
-		this.quantity = quantity;
+		this.totalPrice = totalPrice;
 		this.deliveryAdress = deliveryAdress;
+		
 		this.orderDate = orderDate;
 	}
-	public Invoice(Date orderDate) {
-		// TODO Auto-generated constructor stub
-		this.orderDate = orderDate;
-	}
-	
-	@Override
-	public String toString() {
-		return "invoiceId=" + invoiceId + ", productId=" + productId + ", userId=" + userId + ", quantity="
-				+ quantity + ", deliveryAdress=" + deliveryAdress + ", orderDate=" + orderDate;
-	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(deliveryAdress, invoiceId, orderDate, productId, quantity, userId);
+		return Objects.hash(deliveryAdress, invoiceId, orderDate, totalPrice, userId);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -89,10 +80,16 @@ public class Invoice {
 			return false;
 		Invoice other = (Invoice) obj;
 		return Objects.equals(deliveryAdress, other.deliveryAdress) && invoiceId == other.invoiceId
-				&& Objects.equals(orderDate, other.orderDate) && Objects.equals(productId, other.productId)
-				&& quantity == other.quantity && Objects.equals(userId, other.userId);
+				&& Objects.equals(orderDate, other.orderDate)
+				&& Double.doubleToLongBits(totalPrice) == Double.doubleToLongBits(other.totalPrice)
+				&& userId == other.userId;
 	}
 
+	@Override
+	public String toString() {
+		return "Invoice [invoiceId=" + invoiceId + ", userId=" + userId + ", totalPrice=" + totalPrice
+				+ ", deliveryAdress=" + deliveryAdress + ", orderDate=" + orderDate + "]";
+	}
 	
-	
+
 }

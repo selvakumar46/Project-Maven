@@ -86,10 +86,26 @@ public class InsertOrder extends HttpServlet {
 
 				double price = cartDao.sumOfPrice(date);
 //				System.out.println(price);
-				
-				
+				Date date1 = java.sql.Date.valueOf(date);
+				Invoice invoice = new Invoice(0, userId2, price, address1, date1);
+//				System.out.println(date1);
+				InvoiceDaoImpl invoiceDao = new InvoiceDaoImpl();
+				boolean flag1 = invoiceDao.insert(invoice);
 
-				response.sendRedirect("showInvoice.jsp");
+				if (flag1 == true) {
+					int userId3 = (int) session.getAttribute("userId");
+					Invoice invoice1 = new Invoice(0, userId3, 0, null, null);
+					Invoice list = invoiceDao.showInvoice(invoice1);
+					if (list != null) {
+						session.setAttribute("totalPrice", list.getTotalPrice());
+						response.sendRedirect("showInvoice.jsp");
+					}else {
+						response.sendRedirect("mainPage.jsp");
+					}
+				}
+				else {
+					response.sendRedirect("mainPage.jsp");
+				}
 
 			} else {
 				response.sendRedirect("cart.jsp");
