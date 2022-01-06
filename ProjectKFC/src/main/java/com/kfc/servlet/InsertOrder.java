@@ -2,6 +2,8 @@ package com.kfc.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,10 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
+import com.kfc.daoimpl.InvoiceDaoImpl;
 import com.kfc.daoimpl.OrdersDaoImpl;
 import com.kfc.daoimpl.ProductDaoImpl;
 import com.kfc.daoimpl.cartItemDaoImpl;
 import com.kfc.model.CartItem;
+import com.kfc.model.Invoice;
 import com.kfc.model.Orders;
 import com.kfc.model.Products;
 
@@ -47,6 +51,7 @@ public class InsertOrder extends HttpServlet {
 		ProductDaoImpl productDao = new ProductDaoImpl();
 		HttpSession session = request.getSession();
 		String address = request.getParameter("address");
+		session.setAttribute("address", address);
 		int userId = (int) session.getAttribute("userId");
 		Orders orders = new Orders(0, 0, userId, 0, null);
 		OrdersDaoImpl ordDao = new OrdersDaoImpl();
@@ -73,7 +78,18 @@ public class InsertOrder extends HttpServlet {
 			Orders deleteOrder = new Orders(0, productId, userId1, 0, null);
 			flag = ordDao.delOrderCart(deleteOrder);
 			if (flag == true) {
-				response.sendRedirect("mainPage.jsp");
+				int userId2 = (int) session.getAttribute("userId");
+				String address1 = (String) session.getAttribute("address");
+//				 System.out.println(address1);
+				LocalDate date = LocalDate.now();
+				CartItem cart = new CartItem();
+
+				double price = cartDao.sumOfPrice(date);
+//				System.out.println(price);
+				
+				
+
+				response.sendRedirect("showInvoice.jsp");
 
 			} else {
 				response.sendRedirect("cart.jsp");

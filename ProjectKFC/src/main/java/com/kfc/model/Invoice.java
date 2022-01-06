@@ -1,6 +1,7 @@
 package com.kfc.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Invoice {
@@ -10,6 +11,10 @@ public class Invoice {
 	private int quantity;
 	private String deliveryAdress;
 	private Date orderDate;
+	
+	
+	
+	
 	public int getInvoiceId() {
 		return invoiceId;
 	}
@@ -60,6 +65,11 @@ public class Invoice {
 		this.deliveryAdress = deliveryAdress;
 		this.orderDate = orderDate;
 	}
+	public Invoice(Date orderDate) {
+		// TODO Auto-generated constructor stub
+		this.orderDate = orderDate;
+	}
+	
 	@Override
 	public String toString() {
 		return "invoiceId=" + invoiceId + ", productId=" + productId + ", userId=" + userId + ", quantity="

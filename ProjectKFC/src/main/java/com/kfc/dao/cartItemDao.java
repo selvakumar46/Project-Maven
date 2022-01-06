@@ -1,5 +1,6 @@
 package com.kfc.dao;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.kfc.model.CartItem;
@@ -13,6 +14,7 @@ public interface cartItemDao {
 
 	public List<CartItem> showUsers();
 
-	public CartItem showInvoice(CartItem carts);
+	public List<CartItem> showInvoice(CartItem carts);
+	public double sumOfPrice(LocalDate date) ;
 
 }

@@ -1,6 +1,7 @@
 package com.kfc.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class CartItem {
@@ -12,6 +13,15 @@ public class CartItem {
 	private double totalPrice;
 	private String status;
 	private Date orderDate;
+	private LocalDate orderDate1;
+	
+	
+	public LocalDate getOrderDate1() {
+		return orderDate1;
+	}
+	public void setOrderDate1(LocalDate orderDate1) {
+		this.orderDate1 = orderDate1;
+	}
 	public int getCartId() {
 		return cartId;
 	}
@@ -72,9 +82,18 @@ public class CartItem {
 		this.status = status;
 		this.orderDate = orderDate;
 	}
+	public CartItem(LocalDate date) {
+		// TODO Auto-generated constructor stub
+		this.orderDate1=date;
+	}
+	
 	public CartItem() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	public CartItem(double double1) {
+		// TODO Auto-generated constructor stub
+		this.totalPrice=double1;
 	}
 	@Override
 	public int hashCode() {

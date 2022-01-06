@@ -1,14 +1,18 @@
 package com.kfc.daoimpl;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.kfc.dao.cartItemDao;
 import com.kfc.model.CartItem;
+import com.kfc.model.Invoice;
+import com.kfc.model.User;
 import com.kfc.util.ConnectionUtil;
 
 public class cartItemDaoImpl implements cartItemDao {
@@ -36,13 +40,14 @@ public class cartItemDaoImpl implements cartItemDao {
 		return false;
 	}
 
-	public List<CartItem> showUsers() {
+	public List<CartItem> showUsers(User user) {
 		List<CartItem> cartItem = new ArrayList<CartItem>();
-		String show = "select * from cart_items where status='Ordered'";
+		String show = "select * from cart_items where status='Ordered'and user_id=?";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
 		try {
 			PreparedStatement pstmt = con.prepareStatement(show);
+			pstmt.setInt(1,user.getUserId() );
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				CartItem cartItems = new CartItem(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4),
@@ -90,29 +95,64 @@ public class cartItemDaoImpl implements cartItemDao {
 
 	}
 
-	public CartItem showInvoice(CartItem carts) {
+	public List <CartItem> showInvoice(CartItem carts) {
+		List <CartItem>invoice=new ArrayList<CartItem>();
 		CartItem cart = null;
 		String show = "select * from cart_items where user_id=?";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
 		try {
 			PreparedStatement pstmt = con.prepareStatement(show);
+//			System.out.println(carts.getUserId());
 			pstmt.setInt(1, carts.getUserId());
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
+//				System.out.println(rs.getString(4));
 				cart = new CartItem(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getInt(5),
-						rs.getInt(6), rs.getString(7), rs.getDate(8));
+						rs.getDouble(6), rs.getString(7), rs.getDate(8));
+				invoice.add(cart);
+				
+				
 			}
+			return invoice;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return cart;
+		return invoice;
+	}
+	public  double sumOfPrice(LocalDate date) {
+		double invoiceBill=0;
+		System.out.println(date);
+		String query="select sum(total_price ) as totalPrice from cart_items where to_char(order_date,'yyyy-MM-dd')='"+date+"' ";
+		ConnectionUtil conect=new ConnectionUtil();
+		Connection con=conect.getDBConnection();
+		try {
+			CallableStatement pstmt = con.prepareCall(query);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()) {
+				 invoiceBill=rs.getDouble(1);
+				System.out.println(invoiceBill);
+			}
+			return invoiceBill;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return invoiceBill;
+		
 	}
 
 	public boolean showBill() {
 		CartItem cart = null;
 		String bill = "select";
 		return false;
+	}
+
+	@Override
+	public List<CartItem> showUsers() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -87,7 +87,8 @@ body {
 		src="image/KFC Logo2.png "
 		width="150px" height="100px">
 	<div class="topnav">
-		<a class="" href="showProducts.jsp">Menu</a> <a href="">My Orders</a>
+		<a class="" href="showProducts.jsp">Menu</a> 
+		<a href="showOrders.jsp?userId=<%=user.getUserId()%>">My Orders</a>
 		<div class="search">
 			<input type="text" placeholder="Search your meal">
 			<button type="submit">Search</button>

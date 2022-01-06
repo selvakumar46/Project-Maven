@@ -1,3 +1,4 @@
+<%@page import="com.kfc.model.User"%>
 <%@page import="com.kfc.model.Orders"%>
 <%@page import="com.kfc.daoimpl.OrdersDaoImpl"%>
 <%@page import="java.util.*"%>
