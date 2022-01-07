@@ -21,19 +21,20 @@ public class ProductDaoImpl implements ProductDao {
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
 		Statement stmt;
-		Products products=null;
+		Products products = null;
 		try {
 			stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
-				products = new Products(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6));
+				products = new Products(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5),
+						rs.getString(6));
 //				listOfProducts.add(product);
 //				System.out.format("%-5s%-27s%-6s%-10s%-5s%-8s%-7s%-9s", "name=", rs.getString(2), "price=",
 //						rs.getDouble(4), "type-", rs.getString(5), "Status-", rs.getString(6));
 //				System.out.println();
 				listOfProducts.add(products);
 //				System.out.println(listOfProducts);
-			
+
 			}
 			return listOfProducts;
 		} catch (SQLException e) {
@@ -97,7 +98,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	}
 
-	public Products updateProduct(Products products) {
+	public boolean updateProduct(Products products) {
 
 		String updateProduct = "update products_kfc set product_status=? where product_name=? ";
 		ConnectionUtil conect = new ConnectionUtil();
@@ -105,7 +106,7 @@ public class ProductDaoImpl implements ProductDao {
 //		System.out.println(products.getProductName());
 //		System.out.println(products.getProductStatus());
 		PreparedStatement pstmt;
-		Products products1 = null;
+
 		try {
 			pstmt = con.prepareStatement(updateProduct);
 			pstmt.setString(1, products.getProductStatus());
@@ -113,23 +114,18 @@ public class ProductDaoImpl implements ProductDao {
 			int i = pstmt.executeUpdate();
 			System.out.println(i + "product Status Update Successfully");
 
-			return products1;
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		return products1;
+		return false;
 	}
 
-	public Products insertProducts(Products productInsert) {
+	public boolean insertProducts(Products productInsert) {
 
-		System.out.println(productInsert.getProductName());
-		System.out.println(productInsert.getDescription());
-		System.out.println(productInsert.getPrice());
-		System.out.println(productInsert.getProductType());
-		System.out.println(productInsert.getProductStatus());
-		String insert = "insert into products_kfc(product_name,description,product_price,product_type,product_status) values (?,?,?,?,?)";
+		String insert = "insert into products_kfc(product_name,description,product_price,product_type,product_status,catogory) values (?,?,?,?,?,?)";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
 		PreparedStatement pstmt;
@@ -141,15 +137,16 @@ public class ProductDaoImpl implements ProductDao {
 			pstmt.setDouble(3, productInsert.getPrice());
 			pstmt.setString(4, productInsert.getProductType());
 			pstmt.setString(5, productInsert.getProductStatus());
+			pstmt.setString(6, productInsert.getProductCatogory());
 			int i = pstmt.executeUpdate();
-			System.out.println(i + "product Update Successfully");
-			return product;
+//			System.out.println(i + "product Update Successfully");
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		return product;
+		return false;
 	}
 
 	public Products validateProduct1(Products product) {

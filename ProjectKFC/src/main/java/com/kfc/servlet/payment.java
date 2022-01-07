@@ -56,5 +56,5 @@ public class payment extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
+	
 }

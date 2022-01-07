@@ -12,6 +12,11 @@ Products meal = productDao.validateProduct(pName); %>
 <head>
 <meta charset="ISO-8859-1">
 <title>del cart</title>
+<style >
+body {
+	background:linear-gradient(to right,yellow,tomato);
+}
+</style>
 </head>
 <body>
 	<form action="delCart" method="post">
@@ -25,7 +30,7 @@ Products meal = productDao.validateProduct(pName); %>
 		<%
 		}
 		%>
-		<button type="submit">submit</button>
+		<button type="submit">confirm</button>
 	</form>
 		
 		

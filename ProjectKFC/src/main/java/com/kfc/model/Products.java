@@ -9,6 +9,17 @@ public class Products {
 	private double price;
 	private String productType;
 	private String productStatus;
+	private String productCatogory;
+	
+	
+
+	public String getProductCatogory() {
+		return productCatogory;
+	}
+
+	public void setProductCatogory(String productCatogory) {
+		this.productCatogory = productCatogory;
+	}
 
 	public int getProductId() {
 		return productId;
@@ -56,6 +67,19 @@ public class Products {
 
 	public void setProductStatus(String productStatus) {
 		this.productStatus = productStatus;
+	}
+	
+	
+	public Products(int productId, String productName, String description, double price, String productType,
+			String productStatus, String productCatogory) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.description = description;
+		this.price = price;
+		this.productType = productType;
+		this.productStatus = productStatus;
+		this.productCatogory = productCatogory;
 	}
 
 	public Products(int productId, String productName, String description, double price, String productType,

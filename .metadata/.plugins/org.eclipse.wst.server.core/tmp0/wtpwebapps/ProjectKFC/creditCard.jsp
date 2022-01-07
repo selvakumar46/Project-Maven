@@ -5,10 +5,28 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>payment details</title>
+<style >
+body {
+	background:linear-gradient(to right,yellow,tomato);
+	
+}
+.container{
+	margin-top:200px;
+}
+
+label {
+        display: inline-block;
+        width: 155px;
+        text-align: right;
+        margin-left:-70px; ;
+      }
+</style>
 </head>
 <body>
+<center>
+	
+	<div class="container">
 	<h3>Credit Card details:</h3>
-	<div>
 		<form action="payment" method="post">
 
 			<label for="cardNumber">16-Digit card number:</label> <input
@@ -18,7 +36,7 @@
 				required> <br> <br> <label for="date">Card exp Date:</label>
 			<input type="date" name="date" value="22/11/2021" min="22/11/2021"
 				max="22/11/2026" required><br> <br> <label
-				for="cvv">Cvv:</label> <input type="password" name="Cvv" required><br>
+				for="cvv">Cvv:</label> <input type="password" name="Cvv" required><br> <br>
 
 
 
@@ -27,5 +45,6 @@
 
 		</form>
 	</div>
+	</center>
 </body>
 </html>

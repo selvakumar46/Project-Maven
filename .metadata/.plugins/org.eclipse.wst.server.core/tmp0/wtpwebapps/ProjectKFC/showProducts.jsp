@@ -10,6 +10,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>KFC's Meals</title>
+<style >
+body {
+	background:linear-gradient(to right,yellow,tomato);
+}
+</style>
 
 </head>
 <body>
@@ -37,7 +42,7 @@
 							<tbody>
 								<tr>
 
-									<td><span>Meal name: <%=meals.getProductName()%>
+									<td><span>Meal name: <b> <%=meals.getProductName()%></b>
 									</span><br> <span> meal Description: <%=meals.getDescription()%>
 									</span><br> <span>meal price: <%=meals.getPrice()%>
 									</span><br> <span>Meal Type:<%=meals.getProductType()%>

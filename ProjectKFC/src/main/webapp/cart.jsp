@@ -9,6 +9,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Cart KFC</title>
+<style >
+body {
+	background:linear-gradient(to right,yellow,tomato);
+}
+</style>
 </head>
 <body>
 	<%
@@ -35,7 +40,7 @@
 				<tr>
 
 					<td>
-						<span>Product Name: <%=cart.getProductName() %></span> <br>
+						<span>Product Name:  <%=cart.getProductName() %></span> <br>
 						<span>Quantity:<%=cart.getQuantity() %></span> <a href="updateCart.jsp?pname=<%=cart.getProductName()%>" >
 						<button type="submit" >Update</button></a><br> 
 						<span> Total Price: <%=cart.getTotalPrice()%></span><br>
@@ -55,7 +60,7 @@
 	<%
 	count++;
 
-	if (count ==3) {
+	if (count ==1) {
 	%>
 	</tr>
 	<tr>

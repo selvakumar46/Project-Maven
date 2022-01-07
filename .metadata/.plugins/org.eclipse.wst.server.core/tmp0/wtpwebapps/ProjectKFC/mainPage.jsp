@@ -12,7 +12,7 @@
 <title>Welcom to KFC</title>
 <style>
 body {
-	margin: 0px;
+	background:linear-gradient(to right,yellow,tomato);
 }
 
 .logo {
@@ -35,7 +35,7 @@ body {
 	size: 500px;
 	width: 1200px;
 	position: relative;
-	margin-top: -100px;
+	margin-top: -110px;
 	margin-left: 150px;
 }
 
@@ -85,7 +85,7 @@ body {
 	<!-- <div class="backround"> -->
 	<img
 		src="image/KFC Logo2.png "
-		width="150px" height="100px">
+		width="150px" height="100px" margin-top: "20px" >
 	<div class="topnav">
 		<a class="" href="showProducts.jsp">Menu</a> 
 		<a href="showOrders.jsp?userId=<%=user.getUserId()%>">My Orders</a>

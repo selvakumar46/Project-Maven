@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Update Admin</title>
+<style>
+body {
+	background: linear-gradient(to right, yellow, tomato);
+}
+
+.container {
+	margin-top: 270px;
+}
+</style>
+
+</head>
+<body>
+	<center>
+		<div>
+			<form action="" method="post">
+							
+			</form>
+		</div>
+	</center>
+</body>
+</html>

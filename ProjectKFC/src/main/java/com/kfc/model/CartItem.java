@@ -120,6 +120,12 @@ public class CartItem {
 				+ productName + ", quantity=" + quantity + ", totalPrice=" + totalPrice + ", status=" + status
 				+ ", orderDate=" + orderDate + "]";
 	}
+	public double sumOfPrice(LocalDate date, int userId2) {
+		// TODO Auto-generated method stub
+		this.orderDate1=date;
+		this.userId=userId2;
+		return 0;
+	}
 	
 	
 

@@ -11,6 +11,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>confirmOrder</title>
+<style >
+body {
+	background:linear-gradient(to right,yellow,tomato);
+}
+</style>
 </head>
 <body>
 <% int userId=Integer.parseInt(request.getParameter("userId")) ; %>

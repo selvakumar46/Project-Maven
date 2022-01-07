@@ -19,6 +19,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Cart</title>
+<style >
+body {
+	background:linear-gradient(to right,yellow,tomato);
+}
+div {
+
+}
+</style>
 </head>
 <body>
 	

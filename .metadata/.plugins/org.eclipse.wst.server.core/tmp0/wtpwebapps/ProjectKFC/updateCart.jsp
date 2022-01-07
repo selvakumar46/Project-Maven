@@ -17,11 +17,15 @@ int userId=(int)session.getAttribute("userId");
 <head>
 <meta charset="ISO-8859-1">
 <title>update cart Kfc</title>
+<style >
+body {
+	background:linear-gradient(to right,yellow,tomato);
+}
+</style>
 </head>
 <body>
 	
-	<h2><%=pName %></h2>
-	<h2><%=userId %></h2>
+	
 	<%if (meal!=null){ %>
 	<form action="upateCart" method="post">
 		<div>
@@ -30,7 +34,7 @@ int userId=(int)session.getAttribute("userId");
 			<%session.setAttribute("productId", meal.getProductId()); %>
 			<button type="submit">Submit</button>
 		</div>
-		<h1><%= meal.getPrice() %></h1>
+		
 		
 	</form>
 	

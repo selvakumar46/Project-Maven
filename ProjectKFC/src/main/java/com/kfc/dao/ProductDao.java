@@ -12,9 +12,9 @@ public interface ProductDao {
 
 	public Products deleteProduct(Products products);
 
-	public Products updateProduct(Products products);
+	public boolean updateProduct(Products products);
 
-	public Products insertProducts(Products productInsert);
+	public boolean insertProducts(Products productInsert);
 
 	public Products validateProduct1(Products product);
 }

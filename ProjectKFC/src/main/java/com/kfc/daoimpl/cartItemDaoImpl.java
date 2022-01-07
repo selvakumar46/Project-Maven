@@ -121,10 +121,10 @@ public class cartItemDaoImpl implements cartItemDao {
 		}
 		return invoice;
 	}
-	public  double sumOfPrice(LocalDate date) {
+	public  double sumOfPrice1(LocalDate date, int userId2) {
 		double invoiceBill=0;
-		System.out.println(date);
-		String query="select sum(total_price ) as totalPrice from cart_items where to_char(order_date,'yyyy-MM-dd')='"+date+"' ";
+//		System.out.println(date);
+		String query="select sum(total_price ) as totalPrice from cart_items where to_char(order_date,'yyyy-MM-dd')='"+date+"' and user_id= "+userId2+"";
 		ConnectionUtil conect=new ConnectionUtil();
 		Connection con=conect.getDBConnection();
 		try {
@@ -155,4 +155,18 @@ public class cartItemDaoImpl implements cartItemDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public double sumOfPrice(LocalDate date, int userId2) {
+		// TODO Auto-generated method stub
+		
+		return 0;
+	}
+
+	@Override
+	public double sumOfPrice(LocalDate date) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
 }

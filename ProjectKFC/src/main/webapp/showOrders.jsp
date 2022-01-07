@@ -9,6 +9,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>My Orders</title>
+<style >
+body {
+	background:linear-gradient(to right,yellow,tomato);
+}
+</style>
 </head>
 <body>
 
