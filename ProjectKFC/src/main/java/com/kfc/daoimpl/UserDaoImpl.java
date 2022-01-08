@@ -50,7 +50,7 @@ public class UserDaoImpl implements UserDao {
 			if (rs.next()) {
 //				System.out.println(rs.getString(2)+","+rs.getLong(3)+","+rs.getString(4));
 
-				logUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getLong(4));
+				logUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getLong(4),rs.getString(5));
 //				System.out.println(user);
 				return logUser;
 			}

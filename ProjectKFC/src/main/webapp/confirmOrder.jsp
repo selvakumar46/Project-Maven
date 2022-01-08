@@ -18,7 +18,7 @@ body {
 </style>
 </head>
 <body>
-<% int userId=Integer.parseInt(request.getParameter("userId")) ; %>
+<% int userId=(int)session.getAttribute("userId") ; %>
    <%OrdersDaoImpl ordDao=new OrdersDaoImpl();
    Orders order1=new Orders();
    order1.setUserId(userId);
@@ -26,7 +26,7 @@ body {
    
    %>
 	<form action="insertOrder" method="post">
-	Enter Your Address: <input type="text" name="address" > <button type="submit" >Submit</button> <br>
+	Enter Delevery Address: <input type="text" name="address" > <button type="submit" >Submit</button> <br>
 	</form>
 </body>
 </html>

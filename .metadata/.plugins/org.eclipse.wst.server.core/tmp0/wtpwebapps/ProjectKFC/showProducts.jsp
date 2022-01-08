@@ -60,7 +60,7 @@ body {
 <%
  count++;
 
- if (count == 2) {
+ if (count == 3) {
  %>
 			</tr>
 			<tr>

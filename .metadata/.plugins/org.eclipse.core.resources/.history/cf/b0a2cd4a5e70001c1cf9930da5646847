@@ -1,0 +1,32 @@
+<%@page import="java.util.List"%>
+<%@page import="com.kfc.daoimpl.OrdersDaoImpl"%>
+<%@page import="java.util.Set"%>
+<%@page import="com.kfc.model.Orders"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+   
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>confirmOrder</title>
+<style >
+body {
+	background:linear-gradient(to right,yellow,tomato);
+}
+</style>
+</head>
+<body>
+<% int userId=Integer.parseInt(request.getParameter("userId")) ; %>
+   <%OrdersDaoImpl ordDao=new OrdersDaoImpl();
+   Orders order1=new Orders();
+   order1.setUserId(userId);
+   List<Orders> allCart=ordDao.allCart(order1);
+   
+   %>
+	<form action="insertOrder" method="post">
+	Enter Your Address: <input type="text" name="address" > <button type="submit" >Submit</button> <br>
+	</form>
+</body>
+</html>

@@ -22,7 +22,7 @@
 				<label for="adminName" id="adminName">Admin Name</label>
 				<input type="text" name="adminName" required> <br> <br>
 				<label for="adminMailId" id="adminMAilId">Admin MailId</label>
-				
+				<input type="text" name="adminMAilId" required> <br> <br>
 				
 			</div>
 		</form>

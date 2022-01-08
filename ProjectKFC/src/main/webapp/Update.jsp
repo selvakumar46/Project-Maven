@@ -17,7 +17,7 @@ body {
 
 </head>
 <body>
-	<center>
+	<center class="container">
 		<div>
 			<form action="StatusUpdate.jsp" method="post">
 				<h4>Update Meal Status
@@ -26,12 +26,12 @@ body {
 		</div>
 		<div>
 			<form action="" method="post">
-				<h4>Update New Admin
+				<h4>Update Admin Details
 				<button type="submit">Submit </button>	</h4>		
 			</form>
 		</div>
 		<div>
-			<form action="" method="post">
+			<form action="OrderStatus.jsp" method="post">
 				<h4>Update Order Status
 				<button type="submit">Submit </button>	</h4>		
 			</form>

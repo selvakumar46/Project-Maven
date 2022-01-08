@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -165,5 +166,28 @@ public class OrdersDaoImpl implements OrdersDao {
 		}
 		return false;
 
+	}
+	public  double sumOfPrice(Orders user) {
+		double invoiceBill=0;
+//		System.out.println(date);
+		String query="select sum(total_price) as totalPrice from order_kfc where user_id=?";
+		ConnectionUtil conect=new ConnectionUtil();
+		Connection con=conect.getDBConnection();
+		try {
+			CallableStatement pstmt = con.prepareCall(query);
+			pstmt.setInt(1, user.getUserId());
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()) {
+				 invoiceBill=rs.getDouble(1);
+				System.out.println(invoiceBill);
+			}
+			return invoiceBill;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return invoiceBill;
+		
 	}
 }

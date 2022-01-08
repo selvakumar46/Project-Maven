@@ -7,6 +7,7 @@ public class User {
 	private String userName;
 	private String mailId;
 	private long mobileNumber;
+	private String roleType;
 	public int getUserId() {
 		return userId;
 	}
@@ -31,25 +32,15 @@ public class User {
 	public void setMobileNumber(long mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
+	public String getRoleType() {
+		return roleType;
 	}
-	public User(int userId, String userName, String mailId, long mobileNumber) {
-		super();
-		this.userId = userId;
-		this.userName = userName;
-		this.mailId = mailId;
-		this.mobileNumber = mobileNumber;
-	}
-	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName + ", mailId=" + mailId + ", mobileNumber="
-				+ mobileNumber + "]";
+	public void setRoleType(String roleType) {
+		this.roleType = roleType;
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(mailId, mobileNumber, userId, userName);
+		return Objects.hash(mailId, mobileNumber, roleType, userId, userName);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -60,10 +51,27 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return Objects.equals(mailId, other.mailId) && mobileNumber == other.mobileNumber && userId == other.userId
+		return Objects.equals(mailId, other.mailId) && mobileNumber == other.mobileNumber
+				&& Objects.equals(roleType, other.roleType) && userId == other.userId
 				&& Objects.equals(userName, other.userName);
 	}
-
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", mailId=" + mailId + ", mobileNumber="
+				+ mobileNumber + ", roleType=" + roleType + "]";
+	}
+	public User(int userId, String userName, String mailId, long mobileNumber, String roleType) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.mailId = mailId;
+		this.mobileNumber = mobileNumber;
+		this.roleType = roleType;
+	}
 	
-
+	
 }

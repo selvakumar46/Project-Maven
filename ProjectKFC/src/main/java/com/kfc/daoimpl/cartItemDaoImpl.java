@@ -79,7 +79,7 @@ public class cartItemDaoImpl implements cartItemDao {
 
 	public CartItem updateStatus(CartItem cart) {
 		CartItem carts = null;
-		String update = "update  cart_items  set status=? where user_id=?";
+		String update = "update  cart_items  set status='delevered' where user_id=?";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
 		try {

@@ -37,19 +37,25 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		PrintWriter pw = response.getWriter();
+		HttpSession session = request.getSession();
 		String mailId = request.getParameter("mailId");
 		long mobileNumber = Long.parseLong(request.getParameter("mobileNumber"));
-		User user = new User(0, null, mailId, mobileNumber);
+		User user = new User(0, null, mailId, mobileNumber, null);
 		UserDaoImpl userDao = new UserDaoImpl();
 		User currentUser = userDao.validateUser(user);
-		System.out.println(currentUser.getUserName());
-		if (currentUser != null) {
-			HttpSession session = request.getSession();
+//		System.out.println(currentUser.getUserName());
+		String role=currentUser.getRoleType();
+		if (role.equals("User")) {
+			
 			session.setAttribute("currentUser", currentUser);
 			session.setAttribute("userId", currentUser.getUserId());
 			response.sendRedirect("mainPage.jsp");
 
-		} else {
+		} 
+		else if(role.equals("Admin")) {
+			response.sendRedirect("AdminPage.jsp");
+		}
+		else {
 			response.sendRedirect("login.jsp");
 		}
 	}

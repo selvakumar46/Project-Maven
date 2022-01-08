@@ -41,7 +41,7 @@ public class payment extends HttpServlet {
 		PaymentDaoImpl payDao=new PaymentDaoImpl();
 		boolean flag=payDao.card(payment);
 		if(flag==true) {
-			response.sendRedirect("complete.jsp");
+			response.sendRedirect("confirmOrder.jsp");
 			
 		}
 		else {

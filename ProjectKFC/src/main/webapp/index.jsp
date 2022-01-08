@@ -19,10 +19,7 @@ body {
 	<div class="container">
 	<form action="login.jsp">
 		<h2>Welcome To KFC!</h2>
-		<button type="submit">User</button>
-	</form>
-	<form action="Admin.jsp">
-	<button type="submit" ac >Admin</button>
+		<button type="submit">Login</button>
 	</form>
 	</div>
 	</center>

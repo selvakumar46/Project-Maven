@@ -83,8 +83,8 @@ public class InsertOrder extends HttpServlet {
 //				 System.out.println(address1);
 				LocalDate date = LocalDate.now();
 				CartItem cart = new CartItem();
-
-				double price = cartDao.sumOfPrice1(date,userId2);
+				double price = (double) session.getAttribute("totalPrice");
+//				double price = cartDao.sumOfPrice1(date,userId2);
 //				System.out.println(price);
 				Date date1 = java.sql.Date.valueOf(date);
 				Invoice invoice = new Invoice(0, userId2, price, address1, date1);
@@ -93,25 +93,13 @@ public class InsertOrder extends HttpServlet {
 				boolean flag1 = invoiceDao.insert(invoice);
 
 				if (flag1 == true) {
-					int userId3 = (int) session.getAttribute("userId");
-					Invoice invoice1 = new Invoice(0, userId3, 0, null, null);
-					Invoice list = invoiceDao.showInvoice(invoice1);
-					System.out.println(list);
-					if (list != null) {
-						
-						session.setAttribute("totalPrice", list.getTotalPrice());
-//						System.out.println(list.getTotalPrice());
-						response.sendRedirect("showInvoice.jsp");
-					}else {
-						response.sendRedirect("mainPage.jsp");
-					}
-				}
-				else {
-					response.sendRedirect("mainPage.jsp");
-				}
 
+					response.sendRedirect("mianPage.jsp");
+				} else {
+					response.sendRedirect("cart.jsp");
+				}
 			} else {
-				response.sendRedirect("cart.jsp");
+				response.sendRedirect("payment.jsp");
 			}
 
 		}

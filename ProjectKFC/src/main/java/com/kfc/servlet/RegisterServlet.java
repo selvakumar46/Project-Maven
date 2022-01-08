@@ -40,7 +40,7 @@ public class RegisterServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		long mobileNumber = Long.parseLong(request.getParameter("mobileNumber"));
 		String mailId = request.getParameter("mailId");
-		User user = new User(0, name, mailId, mobileNumber);
+		User user = new User(0, name, mailId, mobileNumber,null);
 		boolean flag = userDao.insertUser(user);
 //		System.out.println(flag);
 		if (flag == true) {
