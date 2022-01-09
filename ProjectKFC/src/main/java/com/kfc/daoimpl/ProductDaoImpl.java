@@ -176,5 +176,59 @@ public class ProductDaoImpl implements ProductDao {
 		return productValid;
 
 	}
+	public List<Products> showTrending() {
+		List<Products> listOfProducts = new ArrayList<Products>();
+//		
+		String query = "select * from products_kfc where catogory='Trending' and product_status='Available'";
+		ConnectionUtil conect = new ConnectionUtil();
+		Connection con = conect.getDBConnection();
+		Statement stmt;
+		Products products = null;
+		try {
+			stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			while (rs.next()) {
+				products = new Products(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5),
+						rs.getString(6));				
+				listOfProducts.add(products);
+//				System.out.println(listOfProducts);
+
+			}
+			return listOfProducts;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return listOfProducts;
+
+	}
+	public List<Products> showBucket() {
+		List<Products> listOfProducts = new ArrayList<Products>();
+//		
+		String query = "select * from products_kfc where catogory='Bucket Meals' and product_status='Available'";
+		ConnectionUtil conect = new ConnectionUtil();
+		Connection con = conect.getDBConnection();
+		Statement stmt;
+		Products products = null;
+		try {
+			stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			while (rs.next()) {
+				products = new Products(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5),
+						rs.getString(6));				
+				listOfProducts.add(products);
+//				System.out.println(listOfProducts);
+
+			}
+			return listOfProducts;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return listOfProducts;
+
+	}
 
 }

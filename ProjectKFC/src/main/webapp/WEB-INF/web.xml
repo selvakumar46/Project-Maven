@@ -6,35 +6,24 @@
 	<servlet>
 		<description>
 		</description>
-		<display-name>AdminLogin</display-name>
-		<servlet-name>AdminLogin</servlet-name>
-		<servlet-class>com.kfc.servlet.AdminLogin</servlet-class>
+		<display-name>OrderStatusServlet</display-name>
+		<servlet-name>OrderStatusServlet</servlet-name>
+		<servlet-class>com.kfc.servlet.OrderStatusServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<description>
 		</description>
-		<display-name>InsertProducts</display-name>
-		<servlet-name>InsertProducts</servlet-name>
-		<servlet-class>com.kfc.servlet.InsertProducts</servlet-class>
-	</servlet>
-	<servlet>
-		<description>
-		</description>
-		<display-name>UpdateStatus</display-name>
-		<servlet-name>UpdateStatus</servlet-name>
-		<servlet-class>com.kfc.servlet.UpdateStatus</servlet-class>
+		<display-name>UpdateStatusServlet</display-name>
+		<servlet-name>UpdateStatusServlet</servlet-name>
+		<servlet-class>com.kfc.servlet.UpdateStatusServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>AdminLogin</servlet-name>
-		<url-pattern>/AdminLogin</url-pattern>
+		<servlet-name>OrderStatusServlet</servlet-name>
+		<url-pattern>/OrderStatusServlet</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>InsertProducts</servlet-name>
-		<url-pattern>/InsertProducts</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>UpdateStatus</servlet-name>
-		<url-pattern>/UpdateStatus</url-pattern>
+		<servlet-name>UpdateStatusServlet</servlet-name>
+		<url-pattern>/UpdateStatusServlet</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

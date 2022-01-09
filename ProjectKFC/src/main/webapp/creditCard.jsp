@@ -34,8 +34,8 @@ label {
 				title="enter 16 digit card number" required><br><br> <label
 				for="cardType">Card type</label> <input type="text" name="cardType"
 				required> <br> <br> <label for="date">Card exp Date:</label>
-			<input type="date" name="date" value="22/11/2021" min="22/11/2021"
-				max="22/11/2026" required><br> <br> <label
+			<input type='date' name="date" min='09/01/2022'
+				max='22/11/2026' required><br> <br> <label
 				for="cvv">Cvv:</label> <input type="password" name="Cvv" required><br> <br>
 
 

@@ -106,6 +106,24 @@ public class UserDaoImpl implements UserDao {
 		return user;
 
 	}
+	public boolean insertAdmin(User admin) {
+		String insert="insert into user_kfc (user_name,mail_id,mobile_number,role_type) values (?,?,?,'Admin')";
+		User user = new User();
+		ConnectionUtil conect = new ConnectionUtil();
+		Connection con = conect.getDBConnection();
+		try {
+			PreparedStatement pstmt=con.prepareStatement(insert);
+			pstmt.setString(1, admin.getUserName());
+			pstmt.setString(2, admin.getMailId());
+			pstmt.setLong(3, admin.getMobileNumber());
+			int i=pstmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 	@Override
 	public User validateUser(String logMail, Long logNumber) {

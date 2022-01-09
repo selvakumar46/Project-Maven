@@ -14,3 +14,51 @@ Jan 04, 2022 18:31:19.411 [15276:22708:0104/183119.331:ERROR:chrome_browser_main
 Jan 04, 2022 18:31:19.412 [15276:12104:0104/183119.332:ERROR:device_event_log_impl.cc(214)] [18:31:19.332] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
 Jan 04, 2022 18:31:19.412 [15276:12104:0104/183119.332:ERROR:device_event_log_impl.cc(214)] [18:31:19.332] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
 Jan 04, 2022 18:31:19.413 [15276:12104:0104/183119.333:ERROR:device_event_log_impl.cc(214)] [18:31:19.333] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+
+Jan 09, 2022 12:57:48.852 NEW SESSION
+Jan 09, 2022 12:57:48.853 [25388:1584:0109/125748.787:ERROR:chrome_browser_main_extra_parts_metrics.cc(226)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+Jan 09, 2022 12:57:48.872 [25388:1584:0109/125748.832:ERROR:chrome_browser_main_extra_parts_metrics.cc(229)] crbug.com/1216328: Checking Bluetooth availability ended.
+Jan 09, 2022 12:57:48.891 [25388:1584:0109/125748.832:ERROR:chrome_browser_main_extra_parts_metrics.cc(232)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+Jan 09, 2022 12:57:48.892 [25388:34704:0109/125748.832:ERROR:device_event_log_impl.cc(214)] [12:57:48.832] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Jan 09, 2022 12:57:48.893 [25388:34704:0109/125748.833:ERROR:device_event_log_impl.cc(214)] [12:57:48.833] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Jan 09, 2022 12:57:48.894 [25388:1584:0109/125748.835:ERROR:chrome_browser_main_extra_parts_metrics.cc(236)] crbug.com/1216328: Checking default browser status ended.
+Jan 09, 2022 12:57:48.921 [25388:21544:0109/125748.920:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 12:58:11.923 [25388:21544:0109/125811.922:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 12:58:14.881 [25388:34704:0109/125814.860:ERROR:account_info_fetcher.cc(62)] OnGetTokenFailure: Connection failed (-106).
+Jan 09, 2022 12:59:00.664 [25388:21544:0109/125900.636:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 13:00:43.68 [25388:21544:0109/130043.052:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 13:04:16.175 [25388:21544:0109/130416.172:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 13:11:31.384 [25388:21544:0109/131131.381:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 13:17:33.745 [25388:21544:0109/131733.742:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -105
+Jan 09, 2022 14:05:04.533 [25388:21544:0109/140504.521:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 14:05:26.486 [25388:21544:0109/140526.475:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 14:06:15.273 [25388:21544:0109/140615.259:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 18:21:21.433 [25388:21544:0109/182121.394:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 18:21:21.470 [25388:14924:0109/182121.397:ERROR:get_updates_processor.cc(260)] PostClientToServerMessage() failed during GetUpdates with error 2
+Jan 09, 2022 19:55:42.377 [25388:21544:0109/195542.264:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 19:55:42.508 [25388:20236:0109/195542.459:ERROR:get_updates_processor.cc(260)] PostClientToServerMessage() failed during GetUpdates with error 2
+Jan 09, 2022 19:57:34.983 [25388:20236:0109/195734.967:ERROR:get_updates_processor.cc(260)] PostClientToServerMessage() failed during GetUpdates with error 2
+Jan 09, 2022 20:03:00.621 [25388:21544:0109/200300.619:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 20:04:36.885 [25388:19224:0109/200436.883:ERROR:get_updates_processor.cc(260)] PostClientToServerMessage() failed during GetUpdates with error 2
+Jan 09, 2022 20:05:51.916 [25388:20236:0109/200551.901:ERROR:get_updates_processor.cc(260)] PostClientToServerMessage() failed during GetUpdates with error 2
+Jan 09, 2022 20:07:44.434 [25388:19224:0109/200744.418:ERROR:get_updates_processor.cc(260)] PostClientToServerMessage() failed during GetUpdates with error 2
+Jan 09, 2022 20:13:00.633 [25388:21544:0109/201300.631:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 20:19:27.610 [25388:12780:0109/201927.594:ERROR:get_updates_processor.cc(260)] PostClientToServerMessage() failed during GetUpdates with error 2
+Jan 09, 2022 20:20:42.620 [25388:19224:0109/202042.607:ERROR:get_updates_processor.cc(260)] PostClientToServerMessage() failed during GetUpdates with error 2
+Jan 09, 2022 20:23:00.648 [25388:21544:0109/202300.634:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 20:23:50.117 [25388:12780:0109/202350.114:ERROR:get_updates_processor.cc(260)] PostClientToServerMessage() failed during GetUpdates with error 2
+Jan 09, 2022 20:31:38.892 [25388:20236:0109/203138.878:ERROR:get_updates_processor.cc(260)] PostClientToServerMessage() failed during GetUpdates with error 2
+Jan 09, 2022 20:33:00.661 [25388:21544:0109/203300.644:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 20:37:22.447 [25388:34704:0109/203722.426:ERROR:interface_endpoint_client.cc(658)] Message 5 rejected by interface blink.mojom.WidgetHost
+
+Jan 09, 2022 20:44:44.557 NEW SESSION
+Jan 09, 2022 20:44:44.557 [30344:6428:0109/204444.539:ERROR:chrome_browser_main_extra_parts_metrics.cc(226)] crbug.com/1216328: Checking Bluetooth availability started. Please report if there is no report that this ends.
+Jan 09, 2022 20:44:44.573 [30344:6428:0109/204444.539:ERROR:chrome_browser_main_extra_parts_metrics.cc(229)] crbug.com/1216328: Checking Bluetooth availability ended.
+Jan 09, 2022 20:44:44.589 [30344:6428:0109/204444.539:ERROR:chrome_browser_main_extra_parts_metrics.cc(232)] crbug.com/1216328: Checking default browser status started. Please report if there is no report that this ends.
+Jan 09, 2022 20:44:44.590 [30344:6428:0109/204444.542:ERROR:chrome_browser_main_extra_parts_metrics.cc(236)] crbug.com/1216328: Checking default browser status ended.
+Jan 09, 2022 20:44:44.591 [30344:11436:0109/204444.543:ERROR:device_event_log_impl.cc(214)] [20:44:44.543] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Jan 09, 2022 20:44:44.591 [30344:11436:0109/204444.544:ERROR:device_event_log_impl.cc(214)] [20:44:44.544] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Jan 09, 2022 20:44:44.639 [30344:13196:0109/204444.638:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 20:45:05.807 [30344:13196:0109/204505.807:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 20:45:50.262 [30344:13196:0109/204550.260:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 09, 2022 20:47:18.289 [30344:13196:0109/204718.287:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106

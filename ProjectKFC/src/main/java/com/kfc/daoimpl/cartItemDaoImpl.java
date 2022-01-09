@@ -30,9 +30,9 @@ public class cartItemDaoImpl implements cartItemDao {
 			pstmt.setDouble(5, carts.getTotalPrice());
 			int i = pstmt.executeUpdate();
 			System.out.println(i + "inserted");
-			
+
 			return true;
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -47,7 +47,7 @@ public class cartItemDaoImpl implements cartItemDao {
 		Connection con = conect.getDBConnection();
 		try {
 			PreparedStatement pstmt = con.prepareStatement(show);
-			pstmt.setInt(1,user.getUserId() );
+			pstmt.setInt(1, user.getUserId());
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				CartItem cartItems = new CartItem(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4),
@@ -77,26 +77,28 @@ public class cartItemDaoImpl implements cartItemDao {
 		return false;
 	}
 
-	public CartItem updateStatus(CartItem cart) {
+	public boolean updateStatus(CartItem cart) {
 		CartItem carts = null;
-		String update = "update  cart_items  set status='delevered' where user_id=?";
+		String update = "update  cart_items  set status='Delevered' where user_id=? and to_char(order_date,'dd-MM-yyyy')=?";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
 		try {
 			PreparedStatement pstmt = con.prepareStatement(update);
-			pstmt.setString(1, cart.getStatus());
-			pstmt.setInt(2, cart.getUserId());
-			pstmt.executeUpdate();
+			
+			pstmt.setInt(1, cart.getUserId());
+			pstmt.setDate(2, cart.getOrderDate());
+			int i=pstmt.executeUpdate();
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return carts;
+		return false;
 
 	}
 
-	public List <CartItem> showInvoice(CartItem carts) {
-		List <CartItem>invoice=new ArrayList<CartItem>();
+	public List<CartItem> showInvoice(CartItem carts) {
+		List<CartItem> invoice = new ArrayList<CartItem>();
 		CartItem cart = null;
 		String show = "select * from cart_items where user_id=?";
 		ConnectionUtil conect = new ConnectionUtil();
@@ -111,8 +113,7 @@ public class cartItemDaoImpl implements cartItemDao {
 				cart = new CartItem(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getInt(5),
 						rs.getDouble(6), rs.getString(7), rs.getDate(8));
 				invoice.add(cart);
-				
-				
+
 			}
 			return invoice;
 		} catch (SQLException e) {
@@ -121,27 +122,53 @@ public class cartItemDaoImpl implements cartItemDao {
 		}
 		return invoice;
 	}
-	public  double sumOfPrice1(LocalDate date, int userId2) {
-		double invoiceBill=0;
+
+	public double sumOfPrice1(LocalDate date, int userId2) {
+		double invoiceBill = 0;
 //		System.out.println(date);
-		String query="select sum(total_price ) as totalPrice from cart_items where to_char(order_date,'yyyy-MM-dd')='"+date+"' and user_id= "+userId2+"";
-		ConnectionUtil conect=new ConnectionUtil();
-		Connection con=conect.getDBConnection();
+		String query = "select sum(total_price ) as totalPrice from cart_items where to_char(order_date,'yyyy-MM-dd')='"
+				+ date + "' and user_id= " + userId2 + "";
+		ConnectionUtil conect = new ConnectionUtil();
+		Connection con = conect.getDBConnection();
 		try {
 			CallableStatement pstmt = con.prepareCall(query);
-			ResultSet rs=pstmt.executeQuery();
-			while(rs.next()) {
-				 invoiceBill=rs.getDouble(1);
-				System.out.println(invoiceBill);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				invoiceBill = rs.getDouble(1);
+//				System.out.println(invoiceBill);
 			}
 			return invoiceBill;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return invoiceBill;
-		
+
+	}
+
+	public List<CartItem> orderStatus() {
+		List<CartItem> allCart = new ArrayList<CartItem>();
+		CartItem cart = null;
+		String query = "select * from cart_items where status='Ordered'";
+		ConnectionUtil conect = new ConnectionUtil();
+		Connection con = conect.getDBConnection();
+		try {
+			PreparedStatement pstmt = con.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				cart = new CartItem(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getInt(5),
+						rs.getDouble(6), rs.getString(7), rs.getDate(8));
+				allCart.add(cart);
+				
+			}
+			return allCart;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return allCart;
 	}
 
 	public boolean showBill() {
@@ -158,7 +185,7 @@ public class cartItemDaoImpl implements cartItemDao {
 
 	public double sumOfPrice(LocalDate date, int userId2) {
 		// TODO Auto-generated method stub
-		
+
 		return 0;
 	}
 
@@ -168,5 +195,4 @@ public class cartItemDaoImpl implements cartItemDao {
 		return 0;
 	}
 
-	
 }

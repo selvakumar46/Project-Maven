@@ -8,7 +8,7 @@ import com.kfc.model.CartItem;
 public interface cartItemDao {
 	public boolean insertCart(CartItem carts);
 
-	public CartItem updateStatus(CartItem cart);
+	public boolean updateStatus(CartItem cart);
 
 	public boolean delete();
 

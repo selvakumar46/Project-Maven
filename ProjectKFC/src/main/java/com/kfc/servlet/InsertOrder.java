@@ -94,7 +94,7 @@ public class InsertOrder extends HttpServlet {
 
 				if (flag1 == true) {
 
-					response.sendRedirect("mianPage.jsp");
+					response.sendRedirect("OrderConfirm.jsp");
 				} else {
 					response.sendRedirect("cart.jsp");
 				}

@@ -31,8 +31,8 @@ label {
 			<input type="text" name="mealName" id="mealName" required autofocus > <br> <br>
 			<label for="mealDescription" id="mealDescription">Meal Description</label>
 			<input type="text" name="mealDescription" id="mealDescription" required> <br> <br>
-			<label for="mealPrice" id="mealPrice">Meal Price</label>
-			<input type="number" name="mealPrice" id="mealPrice" required> <br> <br>
+			<label for="mealPrice" id="mealPrice"  >Meal Price</label>
+			<input type="number" name="mealPrice" id="mealPrice" min="0" required> <br> <br>
 			<label for="mealType" id="mealType">Meal Type</label>
 			<input type="text" name="mealType" id="mealType" required> <br> <br>
 			<label for="mealStatus" id="mealStatus">Meal Status</label>

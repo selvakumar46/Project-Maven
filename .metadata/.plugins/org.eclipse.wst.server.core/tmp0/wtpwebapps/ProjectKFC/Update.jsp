@@ -31,7 +31,7 @@ body {
 			</form>
 		</div>
 		<div>
-			<form action="OrderStatus.jsp" method="post">
+			<form action="OrderStatus" >
 				<h4>Update Order Status
 				<button type="submit">Submit </button>	</h4>		
 			</form>

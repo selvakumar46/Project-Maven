@@ -112,21 +112,28 @@ body {
 	<div>
 	
 	</div>
-		<h4>Catogories:</h4>
+		<h3>Catogories:</h3>
 		
 	</div>
 	<div>
-		<img src="image/backround_img1.jpg" width="300px" height="150px"
-			alt="Trending Meals"> <a href="trending_meals.html">1.Trending
-			Meals</a> <img src="image/backround_img2.jpg" alt="Bucket Meals"> <a
-			href="">2.Bucket</a>
+		<form action="BucketMeals.jsp" method="post">
+			<div>
+				<b>Bucket meals:</b><button>Submit</button> </a>
+			</div>
+			
+		</form> <br>
+		<form action="TrendMeals.jsp" method="post">
+			<div>
+				<b>Trending meals:</b><button>Submit</button> </a>
+			</div>
+			
+		</form>
+		 
 	</div>
 	<br>
 	<br>
 	<div>
-		<img src="image/backround_img1.jpg" width="300px" height="150px"
-			alt="Snacks"> <img src="image/backround_img2.jpg"
-			alt="Cool Drinks">
+		
 	</div>
 	<div class="downnav">
 		<a href="">Get helpS</a> <a href="">About Us</a> <a href="">Contact

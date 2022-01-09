@@ -34,7 +34,7 @@ div {
 		<div>
 		<% if(meal!=null){  %>
 			
-			Enter Quantity: <input type="number" name="Quantity" >
+			Enter Quantity: <input type="number" name="Quantity" min="1">
 			<button type="submit" ">Submit</button>
 			<%session.setAttribute("price", meal.getPrice()); %>
 			<%session.setAttribute("productId", meal.getProductId()); %>
