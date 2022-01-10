@@ -5,12 +5,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Admin Inset</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style >
 body {
-	background:linear-gradient(to right,yellow,tomato);
+	background:linear-gradient(to right,brown,white);
 }
 .container{
-	margin-top:270px;
+	margin-top:200px;
 	}
 
 </style>
@@ -19,13 +21,13 @@ body {
 	<center>
 	<form action="InsertProduct.jsp">
 		<div class="container" >
-			<h3>Insert New Meal
-			<button type="submit">Submit</button></h3>
+			<h4>Insert New Meal</h4>
+			<button type="submit" class="btn btn-success">Submit</button>
 		</div>
-		</form>
+		</form> <br>
 	<form action="NewAdmin.jsp">
 		<div>
-			<h3>Insert New Admin<button type="submit">Submit</button></h3>
+			<h4>Insert New Admin</h4><button type="submit" class="btn btn-success">Submit</button>
 		</div>
 	</form>
 	</center>

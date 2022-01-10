@@ -79,14 +79,14 @@ public class cartItemDaoImpl implements cartItemDao {
 
 	public boolean updateStatus(CartItem cart) {
 		CartItem carts = null;
-		String update = "update  cart_items  set status='Delevered' where user_id=? and to_char(order_date,'dd-MM-yyyy')=?";
+		String update = "update  cart_items  set status='Delevered' where user_id=? ";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
 		try {
 			PreparedStatement pstmt = con.prepareStatement(update);
 			
 			pstmt.setInt(1, cart.getUserId());
-			pstmt.setDate(2, cart.getOrderDate());
+			
 			int i=pstmt.executeUpdate();
 			return true;
 		} catch (SQLException e) {

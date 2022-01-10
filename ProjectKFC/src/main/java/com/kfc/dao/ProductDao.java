@@ -10,7 +10,7 @@ public interface ProductDao {
 
 	public Products validateProduct(String selectProduct);
 
-	public Products deleteProduct(Products products);
+	public boolean deleteProduct(Products products);
 
 	public boolean updateProduct(Products products);
 

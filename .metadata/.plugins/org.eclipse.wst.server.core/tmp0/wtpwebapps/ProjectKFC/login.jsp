@@ -7,37 +7,57 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login KFC</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
+ 
 body {
-	background:linear-gradient(to right,yellow,tomato);
+
+	background:linear-gradient(to right,brown,white);
+	
+	
+	
 }
 .container{
-	margin-top:270px;
+	margin-top:230px;
+	marigin-botom:0px;
+	
+}
+h2{
+	margin-right:-90px; ;
+	margin-top:50px;
 }
 label {
         display: inline-block;
-        width: 155px;
+        width: 165px;
         text-align: right;
-        margin-left:-50px; ;
+        margin-left:-40px; ;
       }
       button {
-	margin-right:-80px; ;
+	margin-right:-80px; 
 }
+a {
+margin-right:-140px
+}
+
 </style>
 </head>
 <body>
+<div class="container">
 <center>
 	<form action="login" method="post">
-		<div class="container">
-			<h2 align="center" >Login KFC</h2>
-			<label> Mail ID:</label><input type="email" name="mailId"> <br> <br>
-			</label>Mobile Number:</label><input type="number" name="mobileNumber"> <br>
+	
+		
+			<h2 align="center" ma >Login KFC</h2>
+			<label> <b>Mail ID:</label><input type="email" name="mailId" autofocus required placeholder="ex:kfc@gmail.com"> <br> <br>
+			</label>Mobile Number:</label><input type="number" name="mobileNumber" required placeholder="Enter mobile Number"> <br>
 			<br>
-			<button type="submit">Login</button>
-		</div>
-	</form>
+			<button type="submit" class="btn btn-success">Login</button>
+		
+	</form> <br>
 	<br> if you don't have account?
-	<a href="Register.jsp">SignUp</a>
+	<a  class="btn btn-primary" href="Register.jsp" >SignUp</a>
 	</center>
+	</div>
 </body>
 </html>

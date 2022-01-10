@@ -21,7 +21,7 @@
 <title>Cart</title>
 <style >
 body {
-	background:linear-gradient(to right,yellow,tomato);
+	background:linear-gradient(to right,brown,white);
 }
 div {
 

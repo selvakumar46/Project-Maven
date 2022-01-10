@@ -40,28 +40,28 @@ public class UpdateStatusServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		PrintWriter pw = response.getWriter();
-		SimpleDateFormat dateFormat=new SimpleDateFormat("dd-MM-yyyy");  
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		HttpSession session = request.getSession();
-		int userId =Integer.parseInt(request.getParameter("userId1")) ;
-		String dateString =  request.getParameter("orderDate");
-		Date date;
-		try {
-			date = (Date) dateFormat.parse(dateString);
-			CartItem cart = new CartItem(0, 0, userId, null, 0, 0, null, date);
-			cartItemDaoImpl cartDao = new cartItemDaoImpl();
-			boolean flag = cartDao.updateStatus(cart);
-			if (flag == true) {
-				response.sendRedirect("OrderStatus.jsp");
+		int userId = (int) session.getAttribute("userId1");
+//		System.out.println(userId);
 
-			}
-			else {
-				response.sendRedirect("Update.jsp");
-			}
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+//		Date date=(Date) session.getAttribute("orderDate1");
+//		System.out.println(date);
+//		System.out.println(userId);
+//		String dateString =  request.getParameter("orderDate");
+//		Date date;
+
+//			date = (Date) dateFormat.parse(dateString);
+		CartItem cart = new CartItem(0, 0, userId, null, 0, 0, null, null);
+		cartItemDaoImpl cartDao = new cartItemDaoImpl();
+		boolean flag = cartDao.updateStatus(cart);
+		if (flag == true) {
+			response.sendRedirect("Update.jsp");
+
+		} else {
+			response.sendRedirect("Update.jsp");
 		}
-		
+
 	}
 
 	/**

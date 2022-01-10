@@ -17,6 +17,13 @@
 		<servlet-name>UpdateStatusServlet</servlet-name>
 		<servlet-class>com.kfc.servlet.UpdateStatusServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>deleteProduct</display-name>
+		<servlet-name>deleteProduct</servlet-name>
+		<servlet-class>com.kfc.servlet.deleteProduct</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>OrderStatusServlet</servlet-name>
 		<url-pattern>/OrderStatusServlet</url-pattern>
@@ -24,6 +31,10 @@
 	<servlet-mapping>
 		<servlet-name>UpdateStatusServlet</servlet-name>
 		<url-pattern>/UpdateStatusServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>deleteProduct</servlet-name>
+		<url-pattern>/deleteProduct</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

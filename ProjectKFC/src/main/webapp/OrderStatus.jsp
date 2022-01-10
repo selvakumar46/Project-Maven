@@ -9,18 +9,29 @@
 <title>Order status update</title>
 <style>
 body {
-	background: linear-gradient(to right, yellow, tomato);
+	background:linear-gradient(to right,brown,white);
 }
 
 .container {
 	margin-top: 270px;
 }
+table,th,tr {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 20px;
+}
+td{
+	border: 1px solid black;
+  border-collapse: collapse;
+  padding: 20px;
+}
 </style>
 </head>
 <body>
 	<%List<CartItem> status =(List<CartItem>) session.getAttribute("status"); %>
+	
 	<center>
-		<form action="">
+		<form action="Orderstatus">
 		<b>Order Status</b>
 		<table id="orderStatus">
 			<tr>
@@ -43,7 +54,8 @@ body {
 					
 				
 				<tbody>
-					<tr><th>Cart Id</th></tr><td><%= cart.getCartId()%></td>
+				<tr>
+					<td><%= cart.getCartId()%></td>
 					<td><%= cart.getProductId() %></td>
 					<td><%= cart.getUserId() %></td>
 					<td><%= cart.getProductName() %></td>
@@ -51,12 +63,14 @@ body {
 					<td><%= cart.getTotalPrice() %></td>
 					<td><%= cart.getStatus() %></td>
 					<td><%= cart.getOrderDate() %></td>
-					<td><a href="Orderstatus?userId1=<%=cart.getUserId()%>,orderDate=<%=cart.getOrderDate() %>"> <button type="submit">Delevered</button></a> </td>
-					
+					<td><a href="Orderstatus?userId1=<%=cart.getUserId()%>,orderDate=<%= cart.getOrderDate()%>"> <button type="submit">Delevered</button></a> </td>
+					</tr>
 				</tbody>
 			</table>
-
+<%session.setAttribute("userId1", cart.getUserId()); %>
+<%session.setAttribute("orderDate1", cart.getOrderDate()); %>
 		<% }%>
+		
 		</form>
 	</center>
 

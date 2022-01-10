@@ -12,7 +12,7 @@
 <title>KFC's Meals</title>
 <style >
 body {
-	background:linear-gradient(to right,yellow,tomato);
+	background:linear-gradient(to right,brown,white);
 }
 </style>
 
@@ -26,7 +26,7 @@ body {
 	%>
 	<p>
 					<b>Product list</b>
-				</p>
+			</p>
 	<table>
 		<tbody>
 			<tr>
@@ -44,7 +44,7 @@ body {
 
 									<td><span>Meal name: <b> <%=meals.getProductName()%></b>
 									</span><br> <span> meal Description: <%=meals.getDescription()%>
-									</span><br> <span>meal price: <%=meals.getPrice()%>
+									</span><br> <span>meal price:<b> <%=meals.getPrice()%></b>
 									</span><br> <span>Meal Type:<%=meals.getProductType()%>
 									</span><br> <span>Meal Status:<%=meals.getProductStatus()%></span><br>
 
@@ -74,6 +74,7 @@ body {
 			</tr>
 		</tbody>
 	</table>
+	
 	<a href="mainPage.jsp" ><button type="submit">Home</button></a>
 
 

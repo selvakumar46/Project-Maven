@@ -74,9 +74,9 @@ public class ProductDaoImpl implements ProductDao {
 
 	}
 
-	public Products deleteProduct(Products products) {
+	public boolean deleteProduct(Products products) {
 
-		String delProd = "delete  from products_kfc where product_name=?";
+		String delProd = "delete  from products_kfc where product_id=?";
 //		System.out.println(products.getProductName() );
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
@@ -84,17 +84,17 @@ public class ProductDaoImpl implements ProductDao {
 		Products productDelete = null;
 		try {
 			pstmt = con.prepareStatement(delProd);
-			pstmt.setString(1, products.getProductName());
+			pstmt.setInt(1, products.getProductId());
 
 			int i = pstmt.executeUpdate();
 			System.out.println(i + "product  deleted Succesfully");
 
-			return productDelete;
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return productDelete;
+		return false;
 
 	}
 

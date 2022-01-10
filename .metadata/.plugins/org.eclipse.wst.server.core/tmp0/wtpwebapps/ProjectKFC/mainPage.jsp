@@ -10,9 +10,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Welcom to KFC</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 body {
-	background:linear-gradient(to right,yellow,tomato);
+	background:linear-gradient(to top,brown,white);
 }
 
 .logo {
@@ -99,8 +101,9 @@ body {
 	</div>
 	<center>
 		<div class="slide">
-			<img src="image/backround_img3.jpg" width="800px" height="300px"
+			<img src="image/Bucket.png" width="800px" height="300px"
 				alt="Kfc Food Special">
+				
 			<center>
 
 				<h4>Hi <%=user.getUserName() %></h4>
@@ -118,12 +121,14 @@ body {
 	<div>
 		<form action="BucketMeals.jsp" method="post">
 			<div>
-				<b>Bucket meals:</b><button>Submit</button> </a>
+				
+				<b>Bucket meals:</b><button  >Submit</button> </a>
 			</div>
 			
 		</form> <br>
 		<form action="TrendMeals.jsp" method="post">
 			<div>
+				
 				<b>Trending meals:</b><button>Submit</button> </a>
 			</div>
 			

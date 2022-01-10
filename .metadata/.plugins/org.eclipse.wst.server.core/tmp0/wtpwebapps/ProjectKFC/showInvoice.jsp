@@ -10,7 +10,7 @@
 <title>Invoice</title>
 <style >
 body {
-	background:linear-gradient(to right,yellow,tomato);
+	background:linear-gradient(to right,brown,white);
 }
 </style>
 </head>
