@@ -82,20 +82,25 @@ public class ProductDaoImpl implements ProductDao {
 		Connection con = conect.getDBConnection();
 		PreparedStatement pstmt;
 		Products productDelete = null;
+		boolean flag=false;
 		try {
 			pstmt = con.prepareStatement(delProd);
 			pstmt.setInt(1, products.getProductId());
 
 			int i = pstmt.executeUpdate();
-			System.out.println(i + "product  deleted Succesfully");
-
-			return true;
+//			System.out.println(i + "product  deleted Succesfully");
+			if(i>0) {
+				flag= true;
+			}
+			else {
+				flag= false;
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
-
+		
+		return flag;
 	}
 
 	public boolean updateProduct(Products products) {
@@ -112,7 +117,7 @@ public class ProductDaoImpl implements ProductDao {
 			pstmt.setString(1, products.getProductStatus());
 			pstmt.setString(2, products.getProductName());
 			int i = pstmt.executeUpdate();
-			System.out.println(i + "product Status Update Successfully");
+//			System.out.println(i + "product Status Update Successfully");
 
 			return true;
 		} catch (SQLException e) {
@@ -230,5 +235,57 @@ public class ProductDaoImpl implements ProductDao {
 		return listOfProducts;
 
 	}
+	public List<Products> showProductAdmin() {
+		List<Products> listOfProducts = new ArrayList<Products>();
+//		
+		String query = "select * from products_kfc ";
+		ConnectionUtil conect = new ConnectionUtil();
+		Connection con = conect.getDBConnection();
+		Statement stmt;
+		Products products = null;
+		try {
+			stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			while (rs.next()) {
+				products = new Products(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5),
+						rs.getString(6));
+				listOfProducts.add(products);
+//				System.out.println(listOfProducts);
+
+			}
+			return listOfProducts;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return listOfProducts;
+
+	}
+	public boolean updatePrice(Products products) {
+
+		String updateProduct = "update products_kfc set product_price=? where product_name=? ";
+		ConnectionUtil conect = new ConnectionUtil();
+		Connection con = conect.getDBConnection();
+//		System.out.println(products.getProductName());
+//		System.out.println(products.getProductStatus());
+		PreparedStatement pstmt;
+
+		try {
+			pstmt = con.prepareStatement(updateProduct);
+			pstmt.setDouble(1, products.getPrice());
+			pstmt.setString(2, products.getProductName());
+			int i = pstmt.executeUpdate();
+//			System.out.println(i + "product Status Update Successfully");
+
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return false;
+	}
+
 
 }

@@ -24,6 +24,20 @@
 		<servlet-name>deleteProduct</servlet-name>
 		<servlet-class>com.kfc.servlet.deleteProduct</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>PriceUpdate</display-name>
+		<servlet-name>PriceUpdate</servlet-name>
+		<servlet-class>com.kfc.servlet.PriceUpdate</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>DeleteProduct</display-name>
+		<servlet-name>DeleteProduct</servlet-name>
+		<servlet-class>com.kfc.servlet.DeleteProduct</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>OrderStatusServlet</servlet-name>
 		<url-pattern>/OrderStatusServlet</url-pattern>
@@ -35,6 +49,14 @@
 	<servlet-mapping>
 		<servlet-name>deleteProduct</servlet-name>
 		<url-pattern>/deleteProduct</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PriceUpdate</servlet-name>
+		<url-pattern>/PriceUpdate</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteProduct</servlet-name>
+		<url-pattern>/DeleteProduct</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

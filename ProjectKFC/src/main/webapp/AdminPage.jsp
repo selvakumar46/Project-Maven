@@ -27,8 +27,8 @@ body {
 		<form action="Update.jsp">
 			<button type="submit" class="btn btn-primary">Update</button>
 		</form><br>
-		<form action="Delete.jsp">
-			<button type="submit" class="btn btn-primary">Delete</button> 
+		<form action="ShowProductsAdmin.jsp">
+			<button type="submit" class="btn btn-primary">List of products</button> 
 		</form><br>
 		</div>
 	</center>

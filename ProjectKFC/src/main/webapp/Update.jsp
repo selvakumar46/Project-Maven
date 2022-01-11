@@ -21,7 +21,7 @@ body {
 <body>
 	<center class="container">
 		<div>
-			<form action="StatusUpdate.jsp" method="post">
+			<form action="#" method="post">
 				<h4><b>Update Meal Status</b></h4>
 				<button type="submit" class="btn btn-success">Submit </button>			
 			</form> <br>

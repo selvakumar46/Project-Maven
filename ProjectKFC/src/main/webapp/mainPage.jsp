@@ -92,8 +92,9 @@ body {
 		<a class="" href="showProducts.jsp">Menu</a> 
 		<a href="showOrders.jsp?userId=<%=user.getUserId()%>">My Orders</a>
 		<div class="search">
-			<input type="text" placeholder="Search your meal">
+			<input type="text" onkeyup="myFunction()" placeholder="Search your meal"  title="Type in a name">
 			<button type="submit">Search</button>
+				
 			<div class="topnav-right">
 				<a href="cart.jsp?userId=<%=user.getUserId()%>">My Cart</a> <a href="login.jsp">Login/Signup</a>
 			</div>
@@ -106,8 +107,8 @@ body {
 				
 			<center>
 
-				<h4>Hi <%=user.getUserName() %></h4>
-				<h3>Welcome to KFC</h3>
+				<h4><b>Hi <%=user.getUserName() %></b></h4>
+				<h3><b>Welcome to KFC</b></h3>
 			</center>
 		</div>
 	</center>
@@ -115,7 +116,7 @@ body {
 	<div>
 	
 	</div>
-		<h3>Catogories:</h3>
+		<h3><b>Categories:</b></h3>
 		
 	</div>
 	<div>
@@ -144,6 +145,23 @@ body {
 		<a href="">Get helpS</a> <a href="">About Us</a> <a href="">Contact
 			Us</a>
 	</div>
+
+	<script>
+	function searchMeals() {
+	    let input = document.getElementById('searchbar').value
+	    input=input.toLowerCase();
+	    let x = document.getElementsByClassName('animals');
+	      
+	    for (i = 0; i < x.length; i++) { 
+	        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+	            x[i].style.display="none";
+	        }
+	        else {
+	            x[i].style.display="list-item";                 
+	        }
+	    }
+	}
+</script>
 
 </body>
 </html>

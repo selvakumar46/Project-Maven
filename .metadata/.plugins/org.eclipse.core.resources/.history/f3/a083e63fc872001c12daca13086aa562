@@ -1,0 +1,60 @@
+<%@page import="com.kfc.model.Products"%>
+<%@page import="com.kfc.daoimpl.ProductDaoImpl"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%String productName1=request.getParameter("proName"); 
+ProductDaoImpl productDao = new ProductDaoImpl();
+Products product = new Products();
+Products meal = productDao.validateProduct(productName1);
+String productName=meal.getProductName();
+double productPrice=meal.getPrice();
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Meal Status Update</title>
+<style>
+body {
+	background:linear-gradient(to right,brown,white);
+}
+
+.container {
+	margin-top: 30px;
+}
+</style>
+
+</head>
+<body>
+
+
+	<center>
+		<div class="container">
+			<form action="statusUpdate" method="post"  >
+				<h3>Change Product Status</h3>
+				<label for="update" id="productName" ><b>Product Name</b></label>
+				<input  name="productName"  value="<%=productName %>" required > <br> <br>
+				<label for="status" id="productStatus"><b>Product Status</b></label>
+				<input type="text" name="productStatus" required autofocus placeholder="Veg/non-veg" > <br> <br>
+				<button type="submit" >Submit</button>
+				<button type="reset">Reset</button>
+			</form> <br>
+		<br>	
+		<form action="">
+			<h3>Change product Price</h3>
+			<label for="update" id="productName" ><b>Product Name</b></label>
+				<input  name="productName"  value="<%=productName1 %>" required > <br> <br>
+				<label for="status" id="productStatus"><b>Product Old Price </b></label>
+				<input type="text" name="productStatus"  value="<%=productPrice %>" > <br> <br>
+				<label for="status" id="productStatus"><b>Product Price </b></label>
+				<input type="text" name="productStatus" required autofocus  > <br> <br>
+				<button type="submit" >Submit</button>
+				<button type="reset">Reset</button>
+			
+		</form>
+		<a href="AdminPage.jsp"> <button>Home</button> </a>
+		</div>
+		
+	</center>
+</body>
+</html>

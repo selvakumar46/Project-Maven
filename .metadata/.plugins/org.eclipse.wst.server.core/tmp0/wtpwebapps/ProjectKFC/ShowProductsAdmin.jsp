@@ -25,11 +25,11 @@ body {
 	ProductDaoImpl products = new ProductDaoImpl();
 	List<Products> showProduct;
 	
-	showProduct = products.showProduct();
+	showProduct = products.showProductAdmin();
 	%>
 	<p>
 					<b>Product list</b>
-	<form action="deleteProduct">			</p>
+				</p>
 	<table>
 		<tbody>
 			<tr>
@@ -50,10 +50,12 @@ body {
 									</span><br> <span>meal price:<b> <%=meals.getPrice()%></b>
 									</span><br> <span>Meal Type:<%=meals.getProductType()%>
 									</span><br> <span>Meal Status:<%=meals.getProductStatus()%></span><br>
+									
+									<span> <a href="StatusUpdate.jsp?proName=<%=meals.getProductName() %>" > <button type="submit" class="btn btn-primary btn-sm">Update</button> </a></span>
 
 										<span>
 										 	<%session.setAttribute("productName", meals.getProductName()); %>
-											<button type="submit" class="btn btn-danger" >Delete</button>
+											<a href="Delete.jsp?productId1=<%=meals.getProductId()%>"> <button type="submit" class="btn btn-secondary btn-sm"   >Delete</button></a>
 									</span></td>
 								</tr>
 							</tbody>
@@ -77,9 +79,9 @@ body {
 			</tr>
 		</tbody>
 	</table>
-	</form>
-	<a href="mainPage.jsp" ><button type="submit" class="btn btn-dark">Home</button></a>
-
+<center>
+	<a href="AdminPage.jsp" ><button type="submit" class="btn btn-dark">Home</button></a>
+</center>
 	
 </body>
 </html>

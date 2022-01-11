@@ -36,12 +36,13 @@ public class UpdateStatus extends HttpServlet {
 		
 		PrintWriter pw=response.getWriter();
 		String productName=request.getParameter("productName");
+//		System.out.println(productName);
 		String productStatus=request.getParameter("productStatus");
 		Products products=new Products(0, productName, null, 0, null, productStatus, null);
 		ProductDaoImpl productDao=new ProductDaoImpl();
 		boolean flag=productDao.updateProduct(products);
 		if(flag==true) {
-			response.sendRedirect("Update.jsp");
+			response.sendRedirect("ShowProductsAdmin.jsp");
 			
 		}
 		else {
