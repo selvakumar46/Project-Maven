@@ -50,7 +50,7 @@ public class UserDaoImpl implements UserDao {
 			if (rs.next()) {
 //				System.out.println(rs.getString(2)+","+rs.getLong(3)+","+rs.getString(4));
 
-				logUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getLong(4),rs.getString(5));
+				logUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getLong(4), rs.getString(5));
 //				System.out.println(user);
 				return logUser;
 			}
@@ -65,7 +65,7 @@ public class UserDaoImpl implements UserDao {
 
 	public User updateUser(User user1) {
 		User user2 = new User();
-		String updateQuery = "update user_kfc set mail_id=? where mobile_number=?  ";
+		String updateQuery = "update user_kfc set mail_id=? where mobile_number=? ";
 		System.out.println(user1.getMailId());
 		System.out.println(user1.getMobileNumber());
 		ConnectionUtil conect = new ConnectionUtil();
@@ -106,23 +106,72 @@ public class UserDaoImpl implements UserDao {
 		return user;
 
 	}
+
 	public boolean insertAdmin(User admin) {
-		String insert="insert into user_kfc (user_name,mail_id,mobile_number,role_type) values (?,?,?,'Admin')";
+		String insert = "insert into user_kfc (user_name,mail_id,mobile_number,role_type) values (?,?,?,'Admin')";
 		User user = new User();
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
 		try {
-			PreparedStatement pstmt=con.prepareStatement(insert);
+			PreparedStatement pstmt = con.prepareStatement(insert);
 			pstmt.setString(1, admin.getUserName());
 			pstmt.setString(2, admin.getMailId());
 			pstmt.setLong(3, admin.getMobileNumber());
-			int i=pstmt.executeUpdate();
+			int i = pstmt.executeUpdate();
 			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	public User validateUserNum(User user) {
+		Connection con = null;
+		User logUser = null;
+		PreparedStatement pstmt = null;
+		con = ConnectionUtil.getDBConnection();
+		String query = "select * from user_kfc where  mobile_number=?";
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setLong(1, user.getMobileNumber());
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				logUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getLong(4), rs.getString(5));
+//				System.out.println(user);
+				return logUser;
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return logUser;
+	}
+
+	public User validateUserMail(User user) {
+		Connection con = null;
+		User logUser = null;
+		PreparedStatement pstmt = null;
+		con = ConnectionUtil.getDBConnection();
+		String query = "select * from user_kfc where mail_id=?";
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, user.getMailId());
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				logUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getLong(4), rs.getString(5));
+//				System.out.println(logUser);
+				return logUser;
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return logUser;
 	}
 
 	@Override

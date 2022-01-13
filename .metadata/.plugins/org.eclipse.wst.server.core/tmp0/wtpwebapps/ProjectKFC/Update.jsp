@@ -21,24 +21,18 @@ body {
 <body>
 	<center class="container">
 		<div>
-			<form action="#" method="post">
-				<h4><b>Update Meal Status</b></h4>
-				<button type="submit" class="btn btn-success">Submit </button>			
-			</form> <br>
-		</div>
-		<div>
 			<form action="" method="post">
 				<h4><b>Update Admin Details</b> </h4>
-				<button type="submit" class="btn btn-success">Submit </button>			
+				<button type="submit" class="btn btn-success btn-sm">Submit </button>			
 			</form>
 		</div>
 		<div>
 			<form action="OrderStatus" >
 				<h4><b>Update Order Status</b></h4>
-				<button type="submit" class="btn btn-success">Submit </button>			
+				<button type="submit" class="btn btn-success btn-sm">Submit </button>			
 			</form> <br>
-		</div>
-		<a href="AdminPage.jsp"><button type="submit" class="btn btn-dark">Home</button> </a>
+		</div> <br>
+		<a href="AdminPage.jsp"><button type="submit" class="btn btn-outline-dark btn-sm">Home</button> </a>
 	</center>
 </body>
 </html>

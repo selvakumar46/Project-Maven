@@ -22,12 +22,12 @@ body {
 	<form action="InsertProduct.jsp">
 		<div class="container" >
 			<h4>Insert New Meal</h4>
-			<button type="submit" class="btn btn-success">Submit</button>
+			<button type="submit" class="btn btn-outline-success btn-sm">Submit</button>
 		</div>
 		</form> <br>
 	<form action="NewAdmin.jsp">
 		<div>
-			<h4>Insert New Admin</h4><button type="submit" class="btn btn-success">Submit</button>
+			<h4>Insert New Admin</h4><button type="submit" class="btn btn-outline-success btn-sm">Submit</button>
 		</div>
 	</form>
 	</center>

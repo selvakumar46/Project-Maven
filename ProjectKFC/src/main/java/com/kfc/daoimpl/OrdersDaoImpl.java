@@ -45,7 +45,7 @@ public class OrdersDaoImpl implements OrdersDao {
 	public List<Orders> showOrders(Orders order) {
 		List<Orders> listOfOrders = new ArrayList<Orders>();
 
-		String query = "select pr.product_name,ord.quantity,ord.total_price,pr.product_id from products_kfc pr inner join order_kfc ord on ord.product_id=pr.product_id where user_id=?";
+		String query = "select pr.product_name,pr.product_price,ord.quantity,ord.total_price,pr.product_id from products_kfc pr inner join order_kfc ord on ord.product_id=pr.product_id where user_id=?";
 //		String query = "select * from order_kfc";
 		Orders orders = null;
 		ConnectionUtil conect = new ConnectionUtil();
@@ -62,7 +62,7 @@ public class OrdersDaoImpl implements OrdersDao {
 //						rs.getInt(2), "Price=", rs.getDouble(3));
 //				System.out.println();
 //				Orders order1=new Orders(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDouble(5));
-				orders = new Orders(rs.getString(1), rs.getInt(2), rs.getDouble(3),rs.getInt(4));
+				orders = new Orders(rs.getString(1),rs.getDouble(2) ,rs.getInt(3), rs.getDouble(4),rs.getInt(5));
 						
 				listOfOrders.add(orders);
 //				System.out.println(listOfOrders);

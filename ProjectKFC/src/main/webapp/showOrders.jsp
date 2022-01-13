@@ -1,3 +1,4 @@
+<%@page import="com.kfc.model.User"%>
 <%@page import="com.kfc.model.Orders"%>
 <%@page import="java.util.List"%>
 <%@page import="com.kfc.model.CartItem"%>
@@ -11,8 +12,53 @@
 <title>My Orders</title>
 <style >
 body {
-	background:linear-gradient(to right,brown,white);
+	background:linear-gradient(to top,brown,white);
 }
+.topnav {
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	size: 500px;
+	width: 1200px;
+	position: relative;
+	margin-top: -110px;
+	margin-left: 150px;
+}
+
+.topnav a {
+	float: left;
+	color: #ffffff;
+	text-align: center;
+	padding: 20px 20px;
+	font-size: 18px;
+}
+
+.topnav-right {
+	float: right;
+}
+
+.search {
+	text-align: center;
+	align-self: center;
+}
+
+.downnav {
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	text-align: center;
+	margin-top: 100px;
+	/* size: 300px; */
+	height: 50px;
+	position: relative;
+}
+
+.downnav a {
+	float: center;
+	text-align: center;
+	font-size: 18px;
+	padding: 20px 20px;
+	color: blanchedalmond;
+}
+
 </style>
 </head>
 <body>
@@ -25,8 +71,25 @@ body {
 	List<CartItem> showOrders;
 	showOrders = cartDao.showInvoice(cart);
 	%>
+	<%User user=(User)session.getAttribute("currentUser"); %>
+<img
+		src="image/KFC Logo2.png "
+		width="150px" height="100px" margin-top: "20px" >
+	<div class="topnav">
+		<a href="mainPage.jsp">Home</a>
+		<a class="" href="showProducts.jsp">Menu</a> 
+		<a href="showOrders.jsp?userId=<%=user.getUserId()%>">My Orders</a>
+		<div class="search">
+			<input type="text" onkeyup="myFunction()" placeholder="Search your meal"  title="Type in a name">
+			<button type="submit">Search</button>
+				
+			<div class="topnav-right">
+				<a href="cart.jsp?userId=<%=user.getUserId()%>">My Cart</a> <a href="login.jsp">LogOut</a>
+			</div>
+		</div>
+	</div>
 	<p>
-		<b>Your Orders </b>
+		<center><b><h3>Your Orders</h3> </b></center>
 	</p>
 	<table>
 		<tbody>
@@ -45,8 +108,8 @@ body {
 								<td><span>Meal name: <%=orders.getProductName()%>
 								</span><br> <span> Quantity: <%=orders.getQuantity()%>
 								</span><br> <span>meal price: <%=orders.getTotalPrice()%>
-								</span><br> <span>Delivery Status:<%=orders.getStatus()%>
-								</span><br> <span>Order Date :<%=orders.getOrderDate()%></span><br>
+								</span><br> <span>Delivery Status:<b><%=orders.getStatus()%></b>
+								</span><br> <span>Order Date :<b><%=orders.getOrderDate()%></b></span><br>
 								
 
 								</td>
@@ -58,7 +121,7 @@ body {
 				<%
 				count++;
 
-				if (count == 2) {
+				if (count == 4) {
 				%>
 			</tr>
 			<tr>
@@ -72,6 +135,5 @@ body {
 			</tr>
 		</tbody>
 	</table>
-	<a href="mainPage.jsp"><button type="submit">Home</button></a>
 </body>
 </html>

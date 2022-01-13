@@ -1,3 +1,4 @@
+<%@page import="com.kfc.model.User"%>
 <%@page import="java.time.LocalDate"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -12,7 +13,7 @@ body {
 	
 }
 .container{
-	margin-top:200px;
+	margin-top:100px;
 }
 
 label {
@@ -21,26 +22,73 @@ label {
         text-align: right;
         margin-left:-70px; ;
       }
+.topnav {
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	size: 500px;
+	width: 1200px;
+	position: relative;
+	margin-top: -110px;
+	margin-left: 150px;
+}
+
+.topnav a {
+	float: left;
+	color: #ffffff;
+	text-align: center;
+	padding: 20px 20px;
+	font-size: 18px;
+}
+
+.topnav-right {
+	float: right;
+}
+
+.search {
+	text-align: center;
+	align-self: center;
+}
+
+.downnav {
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	text-align: center;
+	margin-top: 100px;
+	/* size: 300px; */
+	height: 50px;
+	position: relative;
+}
+
+.downnav a {
+	float: center;
+	text-align: center;
+	font-size: 18px;
+	padding: 20px 20px;
+	color: blanchedalmond;
+}
+
 </style>
 </head>
-<script >
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
-var yyyy = today.getFullYear();
-if(dd<10){
-  dd='0'+dd
-} 
-if(mm<10){
-  mm='0'+mm
-} 
 
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield").setAttribute("min", today);
-</script>
 <body>
+<%User user=(User)session.getAttribute("currentUser"); %>
+<img
+		src="image/KFC Logo2.png "
+		width="150px" height="100px" margin-top: "20px" >
+	<div class="topnav">
+		<a href="mainPage.jsp">Home</a>
+		<a class="" href="showProducts.jsp">Menu</a> 
+		<a href="showOrders.jsp?userId=<%=user.getUserId()%>">My Orders</a>
+		<div class="search">
+			<input type="text" onkeyup="myFunction()" placeholder="Search your meal"  title="Type in a name">
+			<button type="submit">Search</button>
+				
+			<div class="topnav-right">
+				<a href="cart.jsp?userId=<%=user.getUserId()%>">My Cart</a> <a href="login.jsp">LogOut</a>
+			</div>
+		</div>
+	</div>
 <center>
-	<h1><%=LocalDate.now() %></h1>
 	<div class="container">
 	<h3>Credit Card details:</h3>
 		<form action="payment" method="post">

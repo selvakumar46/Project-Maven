@@ -19,30 +19,31 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Cart</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style >
 body {
 	background:linear-gradient(to right,brown,white);
 }
-div {
-
-}
+.container {
+	margin-top: 100px;
 </style>
 </head>
 <body>
-	
+	<center>
 	<form action="cart">
-		<div>
+		<div class="container">
 		<% if(meal!=null){  %>
 			
-			Enter Quantity: <input type="number" name="Quantity" min="1">
-			<button type="submit" ">Submit</button>
+			<b>Enter Quantity: </b><input type="number" name="Quantity" min="1">
+			<button type="submit" class="btn btn-info btn-sm">Submit</button>
 			<%session.setAttribute("price", meal.getPrice()); %>
 			<%session.setAttribute("productId", meal.getProductId()); %>
 			<%} %>
 		</div>
 	</form>
 	
-	
+	</center>
 	
 </body>
 </html>

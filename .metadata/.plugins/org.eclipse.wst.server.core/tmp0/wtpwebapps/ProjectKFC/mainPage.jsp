@@ -88,6 +88,8 @@ body {
 	<img
 		src="image/KFC Logo2.png "
 		width="150px" height="100px" margin-top: "20px" >
+		
+		
 	<div class="topnav">
 		<a class="" href="showProducts.jsp">Menu</a> 
 		<a href="showOrders.jsp?userId=<%=user.getUserId()%>">My Orders</a>
@@ -96,7 +98,8 @@ body {
 			<button type="submit">Search</button>
 				
 			<div class="topnav-right">
-				<a href="cart.jsp?userId=<%=user.getUserId()%>">My Cart</a> <a href="login.jsp">Login/Signup</a>
+			
+				<a href="cart.jsp?userId=<%=user.getUserId()%>">My Cart</a> <a href="login.jsp">Logout</a>
 			</div>
 		</div>
 	</div>

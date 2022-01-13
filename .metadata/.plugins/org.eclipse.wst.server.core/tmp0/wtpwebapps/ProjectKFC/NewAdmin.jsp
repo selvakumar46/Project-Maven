@@ -13,15 +13,27 @@
 }
 
 .container {
-	margin-top: 270px;
+	margin-top: 100px;
 }
+h2{
+	margin-right: -100px;
+}
+.center{
+	margin-right:-120px;
+}
+label {
+        display: inline-block;
+        width: 165px;
+        text-align: right;
+        margin-left:-40px; ;
+      }
 </style>
 </head>
 <body>
 	<center>
 		<form action="newAdmin">
 			<div class="container">
-				<h2>New Admin</h2>
+				<h2>New Admin</h2> <br>
 				<label for="adminName" id="adminName"><b>Admin Name</b></label>
 				<input type="text" name="adminName" required autofocus> <br> <br>
 				<label for="adminMailId" id="adminMailId"><b>Admin MailId</b></label>
@@ -30,11 +42,13 @@
 				<label for="adminNumber" id="adminNumber"><b>Mobile Number</b></label>
 				<input type="number" name="adminNumber" pattern="[6-9][0-9]{9}"
 					title="Enter your 10- digit mobile number" min="0" required> <br> <br>
-					<button type="submit" class="btn btn-success">Submit</button>
-					<button type="reset" class="btn btn-danger">Reset</button>
-				
+					<center class="center">
+					<button type="submit" class="btn btn-success btn-sm">Submit</button>
+					<button type="reset" class="btn btn-danger btn-sm">Reset</button>
+					</center> 	
 			</div>
-		</form>
+		</form><br>
+		<a href="AdminPage.jsp"><center class="center"><button type="submit" class="btn btn-outline-dark btn-sm">Home</button></center></a>
 	</center>
 </body>
 </html>

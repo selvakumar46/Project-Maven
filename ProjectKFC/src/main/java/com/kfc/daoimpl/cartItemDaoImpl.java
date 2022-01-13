@@ -100,7 +100,7 @@ public class cartItemDaoImpl implements cartItemDao {
 	public List<CartItem> showInvoice(CartItem carts) {
 		List<CartItem> invoice = new ArrayList<CartItem>();
 		CartItem cart = null;
-		String show = "select * from cart_items where user_id=?";
+		String show = "select * from cart_items where user_id=? order by(order_date) desc";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
 		try {

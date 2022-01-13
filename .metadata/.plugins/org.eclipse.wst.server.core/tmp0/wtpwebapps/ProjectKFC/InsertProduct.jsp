@@ -20,9 +20,8 @@ label {
         text-align: right;
         margin-left:-80px; ;
       }
-button{
-	margin-right:0px;
-}
+
+
 </style>
 
 </head>
@@ -43,10 +42,11 @@ button{
 			<input type="text" name="mealStatus" id="mealStatus" required placeholder="(Available/Sold-Out)"> <br> <br>
 			<label for="mealCatogory" id="mealcatogory"><b>Meal Catogory</b></label>
 			<input type="text" name="mealCatogory" id="mealCatogory" required placeholder="Enter meal catogory..."> <br> <br>
-			<button type="submit" class="btn btn-success">Submit</button> 
-			<button type="reset" class="btn btn-danger">Reset</button>
+			<button type="submit" class="btn btn-outline-success btn-sm ">Submit</button> 
+			<button type="reset" class="btn btn-outline-danger btn-sm mov">Reset</button>
 			</div>
-		</form>
+		</form> <br>
+		<a href="AdminPage.jsp"> <button type="submit" class="btn btn-outline-dark btn-sm">Home</button> </a>
 	</center>
 
 </body>

@@ -19,7 +19,7 @@ body {
 	
 }
 .container{
-	margin-top:230px;
+	margin-top:170px;
 	marigin-botom:0px;
 	
 }
@@ -39,12 +39,19 @@ label {
 a {
 margin-right:-140px
 }
-
+.exception{
+	color:red;
+	backround-color:white;
+	font-size:15px;
+	float:center;
+	margin-right:-150px;
+}
 </style>
 </head>
 <body>
 <div class="container">
 <center>
+
 	<form action="login" method="post">
 	
 		
@@ -56,7 +63,14 @@ margin-right:-140px
 		
 	</form> <br>
 	<br> if you don't have account?
-	<a  class="btn btn-primary" href="Register.jsp" >SignUp</a>
+	<a  class="btn btn-primary" href="Register.jsp" >SignUp</a> <br> <br> <br>
+	
+<%
+   if(session.getAttribute("invalidUser") != null){%>
+	  <b> <h1 class="exception"><i>Invalid MailId or Password</i></h1></b>
+	   
+   <%session.removeAttribute("invalidUser"); }
+   %>
 	</center>
 	</div>
 </body>

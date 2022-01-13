@@ -1,0 +1,9 @@
+package com.kfc.exception;
+
+public class UsedMailIdException extends Exception {
+	
+	public String getgetMessage() {
+		return "Register.jsp";
+	}
+
+}

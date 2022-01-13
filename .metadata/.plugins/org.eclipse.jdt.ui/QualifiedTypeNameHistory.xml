@@ -33,7 +33,6 @@
     <fullyQualifiedTypeName name="com.kfc.model.Admin"/>
     <fullyQualifiedTypeName name="com.kfc.daoimpl.AdminDaoImpl"/>
     <fullyQualifiedTypeName name="java.lang.Double"/>
-    <fullyQualifiedTypeName name="com.kfc.model.User"/>
     <fullyQualifiedTypeName name="com.kfc.daoimpl.UserDaoImpl"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
@@ -47,7 +46,11 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-    <fullyQualifiedTypeName name="com.kfc.model.Products"/>
     <fullyQualifiedTypeName name="com.kfc.daoimpl.ProductDaoImpl"/>
+    <fullyQualifiedTypeName name="com.kfc.model.Products"/>
+    <fullyQualifiedTypeName name="com.kfc.exception.InvalidUserException"/>
+    <fullyQualifiedTypeName name="com.kfc.model.User"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="com.kfc.exception.UsedMobileNumberException"/>
+    <fullyQualifiedTypeName name="com.kfc.exception.UsedMailIdException"/>
 </qualifiedTypeNameHistroy>

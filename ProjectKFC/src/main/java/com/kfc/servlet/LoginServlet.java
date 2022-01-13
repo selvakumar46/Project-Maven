@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.kfc.daoimpl.UserDaoImpl;
+import com.kfc.exception.InvalidUserException;
 import com.kfc.model.User;
 
 /**
@@ -43,6 +44,7 @@ public class LoginServlet extends HttpServlet {
 		User user = new User(0, null, mailId, mobileNumber, null);
 		UserDaoImpl userDao = new UserDaoImpl();
 		User currentUser = userDao.validateUser(user);
+		if(currentUser!=null) {
 //		System.out.println(currentUser.getUserName());
 		String role=currentUser.getRoleType();
 		if (role.equals("User")) {
@@ -54,9 +56,16 @@ public class LoginServlet extends HttpServlet {
 		} 
 		else if(role.equals("Admin")) {
 			response.sendRedirect("AdminPage.jsp");
-		}
+		}}
 		else {
-			response.sendRedirect("login.jsp");
+			try {
+				throw new InvalidUserException();
+			}catch(InvalidUserException e) {
+				session.setAttribute("invalidUser", "invalid");
+				String validate=e.getMessage();
+				response.sendRedirect(validate);
+				
+			}
 		}
 	}
 

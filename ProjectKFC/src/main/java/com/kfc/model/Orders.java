@@ -9,6 +9,16 @@ public class Orders {
 	private int quantity;
 	private Double totalPrice;
 	private String productName;
+	private double price;
+	
+	
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
 
 	public int getOrderId() {
 		return orderId;
@@ -79,9 +89,10 @@ public class Orders {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Orders(String productName, int Quantity, double totalPrice,int productId) {
+	public Orders(String productName,double price, int Quantity, double totalPrice,int productId) {
 		// TODO Auto-generated constructor stub
 		this.productName=productName;
+		this.price=price;
 		this.quantity=Quantity;
 		this.totalPrice=totalPrice;
 		this.productId = productId;

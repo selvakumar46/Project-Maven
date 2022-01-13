@@ -32,6 +32,13 @@ button{
 .bold{
 	margin-right:-80px;
 }
+.exception{
+	color:red;
+	backround-color:white;
+	font-size:15px;
+	float:center;
+	margin-right:-60px;
+}
 </style>
 </head>
 <body>
@@ -56,6 +63,21 @@ button{
 			</div>
 		</form>
 		<a href="login.jsp"><button type="submit" class="btn btn-success" value="SignUp">Login</button></a>
+		<%
+   if(session.getAttribute("UsedNumber") != null){%>
+   
+	  <b> <h1 class="exception"><i>Mobile Number is already registered</i></h1></b><%} %>
+	   
+   <%session.removeAttribute("UsedNumber"); 
+   %>
+   <%
+   if(session.getAttribute("UsedMailId") != null){
+	%>
+   
+	  <b> <h1 class="exception"><i>Mail Id is already registered</i></h1></b><%} %>
+	   
+   <%session.removeAttribute("UsedNumber"); 
+   %>
 	</center>
 </body>
 </html>
