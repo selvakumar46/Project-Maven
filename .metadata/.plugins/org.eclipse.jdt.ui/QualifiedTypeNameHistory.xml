@@ -36,7 +36,6 @@
     <fullyQualifiedTypeName name="com.kfc.daoimpl.UserDaoImpl"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="com.kfc.servlet.CartUpdate"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="com.kfc.daoimpl.cartItemDaoImpl"/>
@@ -53,4 +52,5 @@
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="com.kfc.exception.UsedMobileNumberException"/>
     <fullyQualifiedTypeName name="com.kfc.exception.UsedMailIdException"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 </qualifiedTypeNameHistroy>

@@ -100,7 +100,7 @@ public class cartItemDaoImpl implements cartItemDao {
 	public List<CartItem> showInvoice(CartItem carts) {
 		List<CartItem> invoice = new ArrayList<CartItem>();
 		CartItem cart = null;
-		String show = "select * from cart_items where user_id=? order by(order_date) desc";
+		String show = "select * from cart_items where user_id=? and status='Ordered' order by(order_date) desc";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
 		try {
@@ -169,6 +169,31 @@ public class cartItemDaoImpl implements cartItemDao {
 		}
 
 		return allCart;
+	}
+	public List<CartItem> showInvoiceDelevered(CartItem carts) {
+		List<CartItem> invoice = new ArrayList<CartItem>();
+		CartItem cart = null;
+		String show = "select * from cart_items where user_id=? and status='Delevered' order by(order_date) desc";
+		ConnectionUtil conect = new ConnectionUtil();
+		Connection con = conect.getDBConnection();
+		try {
+			PreparedStatement pstmt = con.prepareStatement(show);
+//			System.out.println(carts.getUserId());
+			pstmt.setInt(1, carts.getUserId());
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+//				System.out.println(rs.getString(4));
+				cart = new CartItem(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getInt(5),
+						rs.getDouble(6), rs.getString(7), rs.getDate(8));
+				invoice.add(cart);
+
+			}
+			return invoice;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return invoice;
 	}
 
 	public boolean showBill() {
