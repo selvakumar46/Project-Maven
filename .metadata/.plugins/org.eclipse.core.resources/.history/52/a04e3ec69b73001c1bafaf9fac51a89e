@@ -1,5 +1,0 @@
-package com.kfc.exception;
-
-public class UsedMobileNumberException {
-
-}

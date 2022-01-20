@@ -119,7 +119,7 @@ body {
 								</span><br> <span>Order Date :<b><%=orders.getOrderDate()%></b></span><br>
 								<span><button type="submit" class="btn btn-outline-danger btn-sm">Cancel Order</button></span>
 
-
+								
 								</td>
 							</tr>
 						</tbody>

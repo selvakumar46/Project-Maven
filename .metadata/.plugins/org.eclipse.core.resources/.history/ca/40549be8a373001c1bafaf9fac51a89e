@@ -1,7 +1,0 @@
-package com.kfc.exception;
-
-public class UsedMobileNumberException extends Exception {
-	public String getMessage() {
-		return "Register.jsp";
-	}
-}
