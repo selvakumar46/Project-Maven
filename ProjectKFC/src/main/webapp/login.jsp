@@ -9,12 +9,13 @@
 <title>Login KFC</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  
 <style>
  
 body {
-
-	background:linear-gradient(to right,brown,white);
+	background-image:url("image/backround.jpg");
 	
+	background-size: 1400px;
 	
 	
 }
@@ -59,7 +60,7 @@ margin-right:-140px
 			<label> <b>Mail ID:</label><input type="email" name="mailId" autofocus required placeholder="ex:kfc@gmail.com"> <br> <br>
 			</label>Mobile Number:</label><input type="number" name="mobileNumber" required placeholder="Enter mobile Number"> <br>
 			<br>
-			<button type="submit" class="btn btn-success">Login</button>
+			<button type="submit" class="btn btn-success btn-change7">Login</button>
 		
 	</form> <br>
 	<br> if you don't have account?

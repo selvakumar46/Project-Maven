@@ -128,7 +128,7 @@ select * from cart_items;
 select * from cart_items ;
 select* from payments_kfc;
 select * from admin_kfc;
-
+drop table admin_kfc;
 select * from cart_items where user_id=102 and  to_char(order_date,'dd-MM-yyyy')='06-01-2022' ;
 select sum(total_price ) as totalPrice from cart_items where to_char(order_date,'dd-MM-yyyy')='07-01-2022' and user_id=3 ;
 select sum(total_price) as totalPrice from order_kfc where user_id=24;
@@ -142,4 +142,4 @@ select * from products_kfc where catogory='Trending' and product_status='Availab
 
 select * from cart_items where user_id=126 order by(order_date) desc;
 select * from user_kfc where mobile_number=9787689246;
-select * from user_kfc where mail_id= 'selvaganesankgs@gmail.com'; 
+select * from user_kfc where mail_id= 'selvaganesankgs@gmail.com';  

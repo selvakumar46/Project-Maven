@@ -133,7 +133,7 @@ body {
 		<form action="TrendMeals.jsp" method="post">
 			<div>
 				
-				<b>Trending meals:</b><button>Submit</button> </a>
+				<b>Trending meals:</b><button class="btn-change7">Submit</button> </a>
 			</div>
 			
 		</form>
