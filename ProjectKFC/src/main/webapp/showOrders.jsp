@@ -118,7 +118,7 @@ body {
 								</span><br> <span>Delivery Status:<b><%=orders.getStatus()%></b>
 								</span><br> <span>Order Date :<b><%=orders.getOrderDate()%></b></span><br>
 								<span><button type="submit" class="btn btn-outline-danger btn-sm">Cancel Order</button></span>
-
+								<%session.setAttribute("cartId", orders.getCartId()); %>
 								
 								</td>
 							</tr>

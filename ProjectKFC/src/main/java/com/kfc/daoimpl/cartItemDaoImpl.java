@@ -29,7 +29,7 @@ public class cartItemDaoImpl implements cartItemDao {
 			pstmt.setInt(4, carts.getQuantity());
 			pstmt.setDouble(5, carts.getTotalPrice());
 			int i = pstmt.executeUpdate();
-			System.out.println(i + "inserted");
+//			System.out.println(i + "inserted");
 
 			return true;
 
@@ -62,13 +62,16 @@ public class cartItemDaoImpl implements cartItemDao {
 
 	}
 
-	public boolean delete() {
-		String delete = "delete from cart_items where user_id=?";
+	public boolean delete(CartItem cart) {
+		String delete = "delete from cart_items where cart_id=?";
 
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
 		try {
 			PreparedStatement pstmt = con.prepareStatement(delete);
+			pstmt.setInt(1, cart.getCartId());
+			int i=pstmt.executeUpdate();
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -218,6 +221,12 @@ public class cartItemDaoImpl implements cartItemDao {
 	public double sumOfPrice(LocalDate date) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public boolean delete() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

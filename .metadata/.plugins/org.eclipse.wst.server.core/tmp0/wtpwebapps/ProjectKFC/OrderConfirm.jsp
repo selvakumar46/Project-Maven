@@ -5,6 +5,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Order Confirmed</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 body {
 	background:linear-gradient(to right,brown,white);
@@ -24,11 +29,13 @@ label {
 </style>
 </head>
 <body>
+<center class="container">
 	<form action="mainPage.jsp">
 		<div>
-			<h1>Your Order Will Placed Successfully</h1>
-			<button type="Submit">Home</button>
+			<h2><b><i>Your Order Will Placed Successfully</i></b></h2>
+			<button type="Submit" class="btn btn-outline-danger btn-sm">Home</button>
 		</div>
 	</form>
+	</center>
 </body>
 </html>

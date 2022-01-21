@@ -97,10 +97,13 @@ List<Products> bucket=productDao.showBucket(); %>
 		</div>
 	</div>
 	<h3><center><b><i>Bucket Meals</i></b></center></h3>
+	<table>
+		<tbody>
+			<tr>
 
 <%
  int count = 0;
-			 int i=bucket.size();
+
  for (Products meals : bucket ) {
  %>
 
@@ -111,13 +114,13 @@ List<Products> bucket=productDao.showBucket(); %>
 
 									<td><span>Meal name: <b> <%=meals.getProductName()%></b>
 									</span><br> <span> meal Description: <%=meals.getDescription()%>
-									</span><br> <span>meal price: <%=meals.getPrice()%>
+									</span><br> <span>meal price:<b> <%=meals.getPrice()%></b>
 									</span><br> <span>Meal Type:<%=meals.getProductType()%>
 									</span><br> <span>Meal Status:<%=meals.getProductStatus()%></span><br>
 
 										<span>
 										 
-										<a href="product.jsp?pname=<%=meals.getProductName() %>" >	<button type="submit"  >Add Cart</button></a>
+										<a href="product.jsp?pname=<%=meals.getProductName() %>" >	<button type="submit" class="btn btn-outline-dark btn-sm" >Add Cart</button></a>
 									</span></td>
 								</tr>
 							</tbody>

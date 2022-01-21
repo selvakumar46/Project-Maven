@@ -112,3 +112,29 @@ Jan 10, 2022 15:28:44.687 [8476:15148:0110/152844.686:ERROR:fallback_task_provid
 Jan 10, 2022 15:29:03.298 [8476:15148:0110/152903.280:ERROR:fallback_task_provider.cc(118)] Every renderer should have at least one task provided by a primary task provider. If a fallback task is shown, it is a bug. Please file a new bug and tag it as a dependency of crbug.com/739782.
 Jan 10, 2022 15:30:46.378 [8476:15148:0110/153046.376:ERROR:fallback_task_provider.cc(118)] Every renderer should have at least one task provided by a primary task provider. If a fallback task is shown, it is a bug. Please file a new bug and tag it as a dependency of crbug.com/739782.
 Jan 10, 2022 18:05:14.206 [8476:15148:0110/180514.205:ERROR:interface_endpoint_client.cc(658)] Message 1 rejected by interface blink.mojom.WidgetHost
+
+Jan 21, 2022 07:06:42.392 NEW SESSION
+Jan 21, 2022 07:06:42.393 [6880:21072:0121/070642.353:ERROR:chrome_browser_main_extra_parts_metrics.cc(227)] START: ReportBluetoothAvailability(). If you don't see the END: message, this is crbug.com/1216328.
+Jan 21, 2022 07:06:42.405 [6880:21072:0121/070642.353:ERROR:chrome_browser_main_extra_parts_metrics.cc(230)] END: ReportBluetoothAvailability()
+Jan 21, 2022 07:06:42.420 [6880:21072:0121/070642.353:ERROR:chrome_browser_main_extra_parts_metrics.cc(235)] START: GetDefaultBrowser(). If you don't see the END: message, this is crbug.com/1216328.
+Jan 21, 2022 07:06:42.421 [6880:21072:0121/070642.357:ERROR:chrome_browser_main_extra_parts_metrics.cc(239)] END: GetDefaultBrowser()
+Jan 21, 2022 07:06:42.423 [6880:13568:0121/070642.385:ERROR:device_event_log_impl.cc(214)] [07:06:42.385] USB: usb_device_handle_win.cc:1050 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Jan 21, 2022 07:06:42.424 [6880:13568:0121/070642.386:ERROR:device_event_log_impl.cc(214)] [07:06:42.386] USB: usb_device_handle_win.cc:1050 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Jan 21, 2022 07:06:42.495 [6880:15580:0121/070642.494:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 21, 2022 07:07:06.558 [6880:15580:0121/070706.557:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 21, 2022 07:07:56.304 [6880:15580:0121/070756.291:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 21, 2022 07:09:53.751 [6880:15580:0121/070953.748:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 21, 2022 07:13:25.198 [6880:15580:0121/071325.196:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 21, 2022 07:19:43.919 [6880:15580:0121/071943.917:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 21, 2022 07:29:43.937 [6880:15580:0121/072943.935:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 21, 2022 07:39:43.954 [6880:15580:0121/073943.951:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 21, 2022 07:49:43.956 [6880:15580:0121/074943.954:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 21, 2022 07:59:43.970 [6880:15580:0121/075943.968:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 21, 2022 08:55:43.965 [6880:15580:0121/085543.858:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Jan 21, 2022 08:56:33.985 [6880:15580:0121/085633.982:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -105
+Jan 21, 2022 09:09:06.223 [6880:13568:0121/090906.220:ERROR:fallback_task_provider.cc(123)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.
+Jan 21, 2022 09:09:22.96 [6880:13568:0121/090922.068:ERROR:interface_endpoint_client.cc(658)] Message 0 rejected by interface blink.mojom.WidgetHost
+Jan 21, 2022 09:12:23.08 [6880:13568:0121/091222.966:ERROR:interface_endpoint_client.cc(658)] Message 0 rejected by interface blink.mojom.WidgetHost
+Jan 21, 2022 09:27:36.640 [6880:13568:0121/092736.637:ERROR:fallback_task_provider.cc(123)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.
+Jan 21, 2022 09:53:28.266 [6880:13568:0121/095328.262:ERROR:fallback_task_provider.cc(123)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.
+Jan 21, 2022 09:53:29.983 [6880:13568:0121/095329.982:ERROR:fallback_task_provider.cc(123)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.

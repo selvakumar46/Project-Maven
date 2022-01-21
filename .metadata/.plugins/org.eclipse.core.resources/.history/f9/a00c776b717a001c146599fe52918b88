@@ -1,0 +1,8 @@
+package com.kfc.exception;
+
+public class CancelOrderFailed {
+	@Override
+	public String getMessage() {
+		return "showOrders.jsp";
+	}
+}

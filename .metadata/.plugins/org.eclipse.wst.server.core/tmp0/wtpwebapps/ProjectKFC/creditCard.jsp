@@ -120,8 +120,8 @@ label {
 
 
 
-				<button type="submit">Submit</button>
-				<button type="reset">Reset</button>
+				<button type="submit" class="btn btn-info btn-sm">Submit</button>
+				<button type="reset" class="btn btn-warning btn-sm">Reset</button>
 
 			</form>
 		</div>
