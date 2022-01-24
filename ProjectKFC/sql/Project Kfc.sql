@@ -25,7 +25,7 @@ CREATE TABLE PRODUCTS_KFC(PRODUCT_ID NUMBER DEFAULT PRO.NEXTVAL PRIMARY KEY,PROD
                             DESCRIPTION VARCHAR2(100)NOT NULL,PRODUCT_PRICE NUMBER NOT NULL,PRODUCT_TYPE VARCHAR2(100)NOT NULL,
                             PRODUCT_STATUS VARCHAR2(100)NOT NULL);
                             
-                            
+ select * from PRODUCTS_KFC where lower(product_name ) like 'stay%' ;                           
 DESC PRODUCTS_KFC;
 INSERT INTO PRODUCTS_KFC (PRODUCT_NAME,DESCRIPTION,PRODUCT_PRICE,PRODUCT_TYPE,PRODUCT_STATUS)VALUES('Stay Home Bucket','Enjoy 4pc of crispty and more',749,'non-veg','Available');
 INSERT INTO PRODUCTS_KFC (PRODUCT_NAME,DESCRIPTION,PRODUCT_PRICE,PRODUCT_TYPE,PRODUCT_STATUS)VALUES('Family Feast','chicken, Medium Popcorn and 1 btle pepsi',789,'non-veg','Availabe');
@@ -40,11 +40,13 @@ INSERT INTO PRODUCTS_KFC (PRODUCT_NAME,DESCRIPTION,PRODUCT_PRICE,PRODUCT_TYPE,PR
 update  products_kfc set catogory='Trending Meals' where product_id=4;
 select * from products_kfc where product_status='Available';
 alter table products_kfc add catogory varchar2(100) ;
+Alter table products_kfc add product_img varchar2(300);
 select * from products_kfc where product_name='Red Bull';
+alter table products_kfc drop column product_img;
 commit;
 
 select * from products_kfc where product_status='Available';
-update products_kfc set catogory='Trending' where product_id=21;
+update products_kfc set product_img='image\Family Feast.jpg' where product_id=2;
 select * from products_kfc;
 
 --------------------------------------------------------------------------------------------------------------------------------
@@ -124,7 +126,7 @@ select * from USER_KFC;
 select * from PRODUCTS_KFC;
 select * from order_kfc;
 select * from INVOICE_KFC;
-select * from cart_items;
+select * from cart_items where cart_id=128;
 select * from cart_items ;
 select* from payments_kfc;
 select * from admin_kfc;

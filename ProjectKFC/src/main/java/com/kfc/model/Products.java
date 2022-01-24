@@ -10,11 +10,18 @@ public class Products {
 	private String productType;
 	private String productStatus;
 	private String productCatogory;
-	
-	
+	private String productImg;
 
 	public String getProductCatogory() {
 		return productCatogory;
+	}
+
+	public String getProductImg() {
+		return productImg;
+	}
+
+	public void setProductImg(String productImg) {
+		this.productImg = productImg;
 	}
 
 	public void setProductCatogory(String productCatogory) {
@@ -68,8 +75,7 @@ public class Products {
 	public void setProductStatus(String productStatus) {
 		this.productStatus = productStatus;
 	}
-	
-	
+
 	public Products(int productId, String productName, String description, double price, String productType,
 			String productStatus, String productCatogory) {
 		super();
@@ -93,6 +99,19 @@ public class Products {
 		this.productStatus = productStatus;
 	}
 
+	public Products(int productId, String productName, String description, double price, String productType,
+			String productStatus, String productCatogory, String productImg) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.description = description;
+		this.price = price;
+		this.productType = productType;
+		this.productStatus = productStatus;
+		this.productCatogory = productCatogory;
+		this.productImg = productImg;
+	}
+
 	public Products() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -100,13 +119,14 @@ public class Products {
 
 	@Override
 	public String toString() {
-		return "productId=" + productId + ", productName=" + productName + ", description=" + description
-				+ ", price=" + price + ", productType=" + productType + ", productStatus=" + productStatus ;
+		return "productId=" + productId + ", productName=" + productName + ", description=" + description + ", price="
+				+ price + ", productType=" + productType + ", productStatus=" + productStatus;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(description, price, productId, productName, productStatus, productType);
+		return Objects.hash(description, price, productCatogory, productId, productImg, productName, productStatus,
+				productType);
 	}
 
 	@Override
@@ -120,7 +140,8 @@ public class Products {
 		Products other = (Products) obj;
 		return Objects.equals(description, other.description)
 				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price)
-				&& productId == other.productId && Objects.equals(productName, other.productName)
+				&& Objects.equals(productCatogory, other.productCatogory) && productId == other.productId
+				&& Objects.equals(productImg, other.productImg) && Objects.equals(productName, other.productName)
 				&& Objects.equals(productStatus, other.productStatus) && Objects.equals(productType, other.productType);
 	}
 

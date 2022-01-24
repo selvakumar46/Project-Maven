@@ -31,6 +31,7 @@ h2{
 label {
         display: inline-block;
         width: 165px;
+        font-color:yellow;
         text-align: right;
         margin-left:-40px; ;
       }
@@ -56,7 +57,7 @@ margin-right:-140px
 	<form action="login" method="post">
 	
 		
-			<h2 align="center" ma >Login KFC</h2>
+			<h2 align="center"  >Login KFC</h2>
 			<label> <b>Mail ID:</label><input type="email" name="mailId" autofocus required placeholder="ex:kfc@gmail.com"> <br> <br>
 			</label>Mobile Number:</label><input type="number" name="mobileNumber" required placeholder="Enter mobile Number"> <br>
 			<br>

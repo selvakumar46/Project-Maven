@@ -66,7 +66,10 @@ body {
 <body>
 	<form action="cancelOrder">
 	<%
-	int userId = Integer.parseInt(request.getParameter("userId"));
+	User user = (User) session.getAttribute("currentUser");
+	%>
+	<%
+	int userId = user.getUserId();
 	cartItemDaoImpl cartDao = new cartItemDaoImpl();
 	CartItem cart = new CartItem();
 	cart.setUserId(userId);
@@ -75,9 +78,7 @@ body {
 	showOrders = cartDao.showInvoice(cart);
 	showOrders1 = cartDao.showInvoiceDelevered(cart);
 	%>
-	<%
-	User user = (User) session.getAttribute("currentUser");
-	%>
+	
 	<img src="image/KFC Logo2.png " width="150px" height="100px"margin-top: "20px" >
 	<div class="topnav">
 		<a href="mainPage.jsp">Home</a> <a class="" href="showProducts.jsp">Menu</a>
@@ -95,6 +96,12 @@ body {
 	</div>
 	<p>
 	<center>
+		<%
+   if(session.getAttribute("CancelOrder") != null){%>
+	  <i> <h1 style="color:red;background-color:white;font-size:20px;float:right;">Your Order Will be Cancelled</h1></i>
+	   
+   <%session.removeAttribute("CancelOrder"); }
+   %>
 		<b><h3>Your Orders</h3> </b>
 	</center>
 	</p>
@@ -111,7 +118,6 @@ body {
 					<table id="OrdersTable">
 						<tbody>
 							<tr>
-
 								<td><span>Meal name: <%=orders.getProductName()%>
 								</span><br> <span> Quantity: <%=orders.getQuantity()%>
 								</span><br> <span>meal price: <%=orders.getTotalPrice()%>

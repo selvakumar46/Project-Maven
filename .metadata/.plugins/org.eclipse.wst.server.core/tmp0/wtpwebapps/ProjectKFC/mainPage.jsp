@@ -94,9 +94,10 @@ body {
 		<a class="" href="showProducts.jsp">Menu</a> 
 		<a href="showOrders.jsp?userId=<%=user.getUserId()%>">My Orders</a>
 		<div class="search">
-			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search your meal" >
+		<form action="searchProduct">
+			<input type="text" id="myInput" name="search" placeholder="Search your meal" >
 			<button type="submit">Search</button>
-				
+			</form>	
 			<div class="topnav-right">
 			
 				<a href="cart.jsp?userId=<%=user.getUserId()%>">My Cart</a> <a href="login.jsp">Logout</a>

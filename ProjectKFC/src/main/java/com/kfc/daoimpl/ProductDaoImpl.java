@@ -27,7 +27,7 @@ public class ProductDaoImpl implements ProductDao {
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
 				products = new Products(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5),
-						rs.getString(6));
+						rs.getString(6),rs.getString(7),rs.getString(8));
 //				listOfProducts.add(product);
 //				System.out.format("%-5s%-27s%-6s%-10s%-5s%-8s%-7s%-9s", "name=", rs.getString(2), "price=",
 //						rs.getDouble(4), "type-", rs.getString(5), "Status-", rs.getString(6));
@@ -286,6 +286,29 @@ public class ProductDaoImpl implements ProductDao {
 
 		return false;
 	}
+	public ResultSet serachProduct(String proName) {
+		String pro = "select * from PRODUCTS_KFC where lower(product_name ) like '"+proName  +"%' ";
+				ResultSet rs=null;
+		try {
+			System.out.println("sercahpro"+proName);
+			Connection con = ConnectionUtil.getDBConnection();
+
+			
+			
+			PreparedStatement pre=con.prepareStatement(pro);
+			
+			
+			rs = pre.executeQuery();
+
+//		System.out.println("serach");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return rs;
+	}
+
 
 
 }

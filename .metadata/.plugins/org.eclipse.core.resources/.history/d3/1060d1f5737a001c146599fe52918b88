@@ -1,0 +1,7 @@
+package com.kfc.exception;
+
+public class CancelOrderFailedException {
+	public String getMessage() {
+		return "showOrders.jsp";
+	}
+}
