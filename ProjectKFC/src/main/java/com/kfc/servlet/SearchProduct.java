@@ -3,6 +3,7 @@ package com.kfc.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,40 +21,46 @@ import com.kfc.model.Products;
 @WebServlet("/searchProduct")
 public class SearchProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SearchProduct() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public SearchProduct() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		PrintWriter pw=response.getWriter();
-		HttpSession session=request.getSession();
-		String productName=request.getParameter("search");
-		Products search=new Products(0, productName, null, 0, null, null, null, null);
-		ProductDaoImpl productDao=new ProductDaoImpl();
-		ResultSet rs=productDao.serachProduct(productName);
+		PrintWriter pw = response.getWriter();
+		HttpSession session = request.getSession();
+		String productName = request.getParameter("search");
+//		System.out.println(productName);
+		Products search = new Products(0, productName, null, 0, null, null, null, null);
+		ProductDaoImpl productDao = new ProductDaoImpl();
+		List<Products> rs = productDao.serachProduct(productName);
 		session.setAttribute("searchProduct", rs);
-		if(rs!=null) {
+//		String rs1=(String)session.getAttribute("searchProduct") ;
+//		System.out.println(rs);
+		if (rs != null) {
 			response.sendRedirect("SearchProduct.jsp");
-		}
-		else {
+		} else {
 			response.sendRedirect("mainPage.jsp");
 		}
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

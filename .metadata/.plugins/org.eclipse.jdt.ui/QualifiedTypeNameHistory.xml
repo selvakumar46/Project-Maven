@@ -35,12 +35,10 @@
     <fullyQualifiedTypeName name="java.lang.Double"/>
     <fullyQualifiedTypeName name="com.kfc.daoimpl.UserDaoImpl"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="com.kfc.servlet.CartUpdate"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.kfc.exception.InvalidUserException"/>
     <fullyQualifiedTypeName name="com.kfc.model.User"/>
     <fullyQualifiedTypeName name="com.kfc.exception.UsedMobileNumberException"/>
@@ -53,8 +51,10 @@
     <fullyQualifiedTypeName name="com.kfc.exception.CancelOrderException"/>
     <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
-    <fullyQualifiedTypeName name="com.kfc.model.Products"/>
     <fullyQualifiedTypeName name="com.kfc.daoimpl.ProductDaoImpl"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="com.kfc.model.Products"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 </qualifiedTypeNameHistroy>

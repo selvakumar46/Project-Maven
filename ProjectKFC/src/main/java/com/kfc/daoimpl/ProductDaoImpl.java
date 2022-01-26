@@ -17,21 +17,17 @@ public class ProductDaoImpl implements ProductDao {
 	public List<Products> showProduct() {
 		List<Products> listOfProducts = new ArrayList<Products>();
 //		
-		String query = "select * from products_kfc where product_status='Available'";
+		String query = "select product_id,product_name,description,product_price,product_type,product_status,catogory,product_img from products_kfc where product_status='Available'";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
-		Statement stmt;
+		PreparedStatement pstmt;
 		Products products = null;
 		try {
-			stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
+			pstmt = con.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery(query);
 			while (rs.next()) {
 				products = new Products(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5),
-						rs.getString(6),rs.getString(7),rs.getString(8));
-//				listOfProducts.add(product);
-//				System.out.format("%-5s%-27s%-6s%-10s%-5s%-8s%-7s%-9s", "name=", rs.getString(2), "price=",
-//						rs.getDouble(4), "type-", rs.getString(5), "Status-", rs.getString(6));
-//				System.out.println();
+						rs.getString(6), rs.getString(7), rs.getString(8));
 				listOfProducts.add(products);
 //				System.out.println(listOfProducts);
 
@@ -48,7 +44,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	public Products validateProduct(String selectProduct) {
 		Products productValid = null;
-		String validatePro = "select * from products_kfc where product_name=?";
+		String validatePro = "select product_id,product_name,description,product_price,product_type,product_status,catogory,product_img from products_kfc where product_name=?";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
 		PreparedStatement pstmt;
@@ -56,16 +52,14 @@ public class ProductDaoImpl implements ProductDao {
 			pstmt = con.prepareStatement(validatePro);
 			pstmt.setString(1, selectProduct);
 			ResultSet rs = pstmt.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 //				System.out.println("Valid Product");
 
 				productValid = new Products(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4),
-						rs.getString(5), rs.getString(6));
-				return productValid;
-			} else {
-				System.out.println("invalid Products");
+						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
 
 			}
+			return productValid;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -82,24 +76,23 @@ public class ProductDaoImpl implements ProductDao {
 		Connection con = conect.getDBConnection();
 		PreparedStatement pstmt;
 		Products productDelete = null;
-		boolean flag=false;
+		boolean flag = false;
 		try {
 			pstmt = con.prepareStatement(delProd);
 			pstmt.setInt(1, products.getProductId());
 
 			int i = pstmt.executeUpdate();
 //			System.out.println(i + "product  deleted Succesfully");
-			if(i>0) {
-				flag= true;
-			}
-			else {
-				flag= false;
+			if (i > 0) {
+				flag = true;
+			} else {
+				flag = false;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return flag;
 	}
 
@@ -156,7 +149,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	public Products validateProduct1(Products product) {
 		Products productValid = null;
-		String validatePro = "select * from products_kfc where product_id=?";
+		String validatePro = "select product_id,product_name,description,product_price,product_type,product_status,catogory,product_img from products_kfc where product_id=?";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
 		PreparedStatement pstmt;
@@ -164,16 +157,13 @@ public class ProductDaoImpl implements ProductDao {
 			pstmt = con.prepareStatement(validatePro);
 			pstmt.setInt(1, product.getProductId());
 			ResultSet rs = pstmt.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 //				System.out.println("Valid Product");
 
 				productValid = new Products(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4),
-						rs.getString(5), rs.getString(6));
-				return productValid;
-			} else {
-				System.out.println("invalid Products");
-
+						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
 			}
+			return productValid;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -181,20 +171,21 @@ public class ProductDaoImpl implements ProductDao {
 		return productValid;
 
 	}
+
 	public List<Products> showTrending() {
 		List<Products> listOfProducts = new ArrayList<Products>();
 //		
-		String query = "select * from products_kfc where catogory='Trending' and product_status='Available'";
+		String query = "select product_id,product_name,description,product_price,product_type,product_status,catogory,product_img from products_kfc where catogory='Trending' and product_status='Available'";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
-		Statement stmt;
+		PreparedStatement pstmt;
 		Products products = null;
 		try {
-			stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
+			pstmt = con.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery(query);
 			while (rs.next()) {
 				products = new Products(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5),
-						rs.getString(6));				
+						rs.getString(6), rs.getString(7), rs.getString(8));
 				listOfProducts.add(products);
 //				System.out.println(listOfProducts);
 
@@ -208,20 +199,21 @@ public class ProductDaoImpl implements ProductDao {
 		return listOfProducts;
 
 	}
+
 	public List<Products> showBucket() {
 		List<Products> listOfProducts = new ArrayList<Products>();
 //		
-		String query = "select * from products_kfc where catogory='Bucket Meals' and product_status='Available'";
+		String query = "select product_id,product_name,description,product_price,product_type,product_status,catogory,product_img from products_kfc where catogory='Bucket Meals' and product_status='Available'";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
-		Statement stmt;
+		PreparedStatement pstmt;
 		Products products = null;
 		try {
-			stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
+			pstmt = con.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery(query);
 			while (rs.next()) {
 				products = new Products(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5),
-						rs.getString(6));				
+						rs.getString(6), rs.getString(7), rs.getString(8));
 				listOfProducts.add(products);
 //				System.out.println(listOfProducts);
 
@@ -235,20 +227,21 @@ public class ProductDaoImpl implements ProductDao {
 		return listOfProducts;
 
 	}
+
 	public List<Products> showProductAdmin() {
 		List<Products> listOfProducts = new ArrayList<Products>();
 //		
-		String query = "select * from products_kfc ";
+		String query = "select product_id,product_name,description,product_price,product_type,product_status,catogory,product_img from products_kfc ";
 		ConnectionUtil conect = new ConnectionUtil();
 		Connection con = conect.getDBConnection();
-		Statement stmt;
+		PreparedStatement pstmt;
 		Products products = null;
 		try {
-			stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
+			pstmt = con.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery(query);
 			while (rs.next()) {
 				products = new Products(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5),
-						rs.getString(6));
+						rs.getString(6), rs.getString(7), rs.getString(8));
 				listOfProducts.add(products);
 //				System.out.println(listOfProducts);
 
@@ -262,6 +255,7 @@ public class ProductDaoImpl implements ProductDao {
 		return listOfProducts;
 
 	}
+
 	public boolean updatePrice(Products products) {
 
 		String updateProduct = "update products_kfc set product_price=? where product_name=? ";
@@ -286,29 +280,32 @@ public class ProductDaoImpl implements ProductDao {
 
 		return false;
 	}
-	public ResultSet serachProduct(String proName) {
-		String pro = "select * from PRODUCTS_KFC where lower(product_name ) like '"+proName  +"%' ";
-				ResultSet rs=null;
+
+	public List<Products> serachProduct(String proName) {
+//		System.out.println(proName);
+		String pro = "select product_id,product_name,description,product_price,product_type,product_status,catogory,product_img from PRODUCTS_KFC where lower(product_name ) like '"
+				+ proName + "%' ";
+		List<Products> listOfProducts = new ArrayList<Products>();
+		Products products = null;
+		ConnectionUtil conect = new ConnectionUtil();
+		Connection con = conect.getDBConnection();
+		PreparedStatement pstmt;
 		try {
-			System.out.println("sercahpro"+proName);
-			Connection con = ConnectionUtil.getDBConnection();
+			pstmt = con.prepareStatement(pro);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				products = new Products(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4),
+						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+				listOfProducts.add(products);
 
-			
-			
-			PreparedStatement pre=con.prepareStatement(pro);
-			
-			
-			rs = pre.executeQuery();
-
-//		System.out.println("serach");
-		} catch (Exception e) {
+			}
+			return listOfProducts;
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		return rs;
+
+		return listOfProducts;
 	}
-
-
 
 }
