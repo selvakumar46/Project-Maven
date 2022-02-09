@@ -10,24 +10,23 @@ import com.kfc.util.ConnectionUtil;
 public class PaymentDaoImpl {
 
 	public boolean card(Payment payment) {
-		String query="insert into payments_kfc (user_id,card_number,card_type) values (?,?,?)";
-		ConnectionUtil conect=new ConnectionUtil();
-		Connection con=conect.getDBConnection();
+		PreparedStatement pstmt = null;
+		String query = "insert into payments_kfc (user_id,card_number,card_type) values (?,?,?)";
+		Connection con = ConnectionUtil.getDBConnection();
 		try {
-			PreparedStatement pstmt=con.prepareStatement(query);
+			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, payment.getUser_id());
 			pstmt.setLong(2, payment.getCardNumber());
 			pstmt.setString(3, payment.getCardType());
-			
-			int i=pstmt.executeUpdate();
+			pstmt.executeUpdate();
 			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(pstmt, con);
 		}
-		
-		
+
 		return false;
 	}
-	
+
 }

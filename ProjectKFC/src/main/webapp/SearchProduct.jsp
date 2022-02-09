@@ -1,18 +1,8 @@
-<%@page import="com.kfc.model.User"%>
-<%@page import="com.kfc.model.Products"%>
-<%@page import="java.util.List"%>
-<%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%
-List<Products> products = (List<Products>) session.getAttribute("searchProduct");
-%>
-<%
-User user = (User) session.getAttribute("currentUser");
-%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Search Meal</title>
@@ -21,60 +11,15 @@ User user = (User) session.getAttribute("currentUser");
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="assets/css/userNav.css">
+<link rel="stylesheet" href="assets/css/background.css">
 <style>
-body {
-	background: linear-gradient(to bottom right, #BDB76B, white);
-}
-
-.topnav {
-	overflow: auto;
-	background-color: rgb(0, 0, 0);
-	size: 500px;
-	width: 1200px;
-	position: relative;
-	margin-top: -110px;
-	margin-left: 150px;
-}
-
-.topnav a {
-	float: left;
-	color: #ffffff;
-	text-align: center;
-	padding: 20px 20px;
-	font-size: 18px;
-}
-
-.topnav-right {
-	float: right;
-}
-
-.search {
-	text-align: center;
-	align-self: center;
-}
-
-.downnav {
-	overflow: auto;
-	background-color: rgb(0, 0, 0);
-	text-align: center;
-	margin-top: 100px;
-	/* size: 300px; */
-	height: 50px;
-	position: relative;
-}
-
-.downnav a {
-	float: center;
-	text-align: center;
-	font-size: 18px;
-	padding: 20px 20px;
-	color: blanchedalmond;
-}
-
 .card {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	transition: 0.3s;
 	width: 100%;
+	padding: 20px;
+	border-radius: 3px;
 	border: thin;
 }
 
@@ -86,11 +31,7 @@ body {
 	padding: 2px 0px;
 }
 
-.moveTop {
-	width: 1198 px;
-	margin-left: 150px;
-	margin-top: -90px;
-}
+
 
 .button {
 	border-radius: 4px;
@@ -133,8 +74,10 @@ body {
 </style>
 </head>
 <body>
+	<c:set value="${currentUser}" var="user"></c:set>
 	<!--logoImage -->
-	<img src="image/KFC Logo2.png " width="150px" height="100px"margin-top: "20px" >
+	<img src="image/KFC Logo2.png " alt="KFC_Logo" width="150px"
+		width="150px" height="100px">
 	<!-- navbar-->
 	<div class="moveTop">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -142,20 +85,21 @@ body {
 				<!-- Left elements -->
 				<a class="nav-link d-sm-flex align-items-lg-center"> <img
 					src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
-					class="rounded-circle" height="25" alt="image for b/w" /> <strong
-					class="d-none d-sm-block ms-7"><%=user.getUserName()%></strong>
+					class="rounded-circle" height="25" width="#" alt="image for b/w" />
+					<strong class="d-none d-sm-block ms-7"><c:out
+							value="${user.userName}" /></strong>
 				</a>
 				<div class="d-flex">
 					<a href="mainPage.jsp">
 						<button type="submit" class="btn btn-light button">Home</button>
-					</a> <a class="" href="showProducts.jsp">
+					</a> <a class="" href="showProducts">
 						<button type="submit" class="btn btn-light  button">Menu</button>
-					</a> <a href="showOrders.jsp?userId=<%=user.getUserId()%>"><button
-							type="submit" class="btn btn-light button">My Orders</button></a>
+					</a> <a href="MyOrders?userId=${user.userId}"><button type="submit"
+							class="btn btn-light button">My Orders</button></a>
 
 					<!-- Search form -->
 					<form action="searchProduct" class="input-group w-auto">
-						<input autocomplete="off" type="search" name="search"
+						<input autocomplete="off" type="search" name="search" id="search"
 							class="form-control " placeholder="search by meal" />
 						<button type="submit" class="btn btn-dark btn-sm">search</button>
 					</form>
@@ -163,8 +107,8 @@ body {
 				<!-- Left elements -->
 
 				<!-- Center elements -->
-				<a href="cart.jsp?userId=<%=user.getUserId()%>"><button
-						type="submit" class="btn btn-light button">My Cart</button></a>
+				<a href="ShowCart"><button type="submit"
+						class="btn btn-light button">My Cart</button></a>
 
 				<!-- Center elements -->
 
@@ -178,67 +122,45 @@ body {
 	<!-- Navbar -->
 	<br>
 	<br>
-
-	<center>
-		<b><h3>Meals list</h3></b>
-	</center>
+	<h3>Meals list</h3>
 
 	<table>
 		<tbody>
 			<tr>
-
-				<%
-				int count = 0;
-				for (Products meals : products) {
-				%>
-
 				<td>
 					<table id="productTable">
 						<tbody>
 							<tr>
-
-								<td>
-									<div class="card">
-										<img alt="meal" src="<%=meals.getProductImg()%>"
-											style="width: 100%">
-										<div class="container">
-											<span>Meal name: <b> <%=meals.getProductName()%></b>
-											</span><br> <span> meal Description: <%=meals.getDescription()%>
-											</span><br> <span>meal price:<b> <%=meals.getPrice()%></b>
-											</span><br> <span>Meal Type:<%=meals.getProductType()%>
-											</span><br> <span>Meal Status:<%=meals.getProductStatus()%></span><br>
-
-											<span> <a
-												href="product.jsp?pname=<%=meals.getProductName()%>">
+								<th><c:set var="count" value="1" /> <c:forEach
+										items="${searchProduct}" var="search">
+										<td>
+											<div class="card">
+												<img src="${search.productImg}" alt="searchImage"
+													style="width: 100%"><br> ${search.productName}
+												<br> ${search.description} <br> ${search.price} <br>
+												${search.productType} <br> ${search.productStatus} <br>
+												<a href="addCart?productName=${productList.productName }">
 													<button type="submit" class="btn btn-outline-dark btn-sm">Add
 														Cart</button>
-											</a>
-											</span>
-										</div>
-									</div>
-								</td>
+												</a>
+											</div>
+										<td><c:choose>
+												<c:when test="${count==3}">
 							</tr>
+							<tr>
+								<c:set var="count" value="1" />
+								</c:when>
+								<c:otherwise>
+									<c:set var="count" value="${count+1}" />
+								</c:otherwise>
+								</c:choose>
+
+								</c:forEach>
+
+							</tr>
+							</th>
 						</tbody>
 					</table>
-
-				</td>
-				<%
-				count++;
-
-				if (count == 3) {
-				%>
-			</tr>
-			<tr>
-				<%
-				count = 0;
-
-				}
-				}
-				%>
-
-			</tr>
-		</tbody>
-	</table>
-
+					</table>
 </body>
 </html>

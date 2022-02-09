@@ -15,7 +15,7 @@ import com.kfc.model.Invoice;
 import com.kfc.model.User;
 import com.kfc.util.ConnectionUtil;
 
-public class cartItemDaoImpl implements cartItemDao {
+public class CartItemDaoImpl implements cartItemDao {
 
 	public boolean insertCart(CartItem carts) {
 		String insert = "insert into cart_items (product_id,user_id,product_name,quantity,total_price)values (?,?,?,?,?)";
@@ -51,7 +51,7 @@ public class cartItemDaoImpl implements cartItemDao {
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				CartItem cartItems = new CartItem(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4),
-						rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getDate(8));
+						rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getTimestamp(8).toLocalDateTime());
 				cartItem.add(cartItems);
 			}
 		} catch (SQLException e) {
@@ -114,7 +114,7 @@ public class cartItemDaoImpl implements cartItemDao {
 			while (rs.next()) {
 //				System.out.println(rs.getString(4));
 				cart = new CartItem(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getInt(5),
-						rs.getDouble(6), rs.getString(7), rs.getDate(8));
+						rs.getDouble(6), rs.getString(7), rs.getTimestamp(8).toLocalDateTime());
 				invoice.add(cart);
 
 			}
@@ -161,7 +161,7 @@ public class cartItemDaoImpl implements cartItemDao {
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				cart = new CartItem(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getInt(5),
-						rs.getDouble(6), rs.getString(7), rs.getDate(8));
+						rs.getDouble(6), rs.getString(7), rs.getTimestamp(8).toLocalDateTime());
 				allCart.add(cart);
 
 			}
@@ -188,7 +188,7 @@ public class cartItemDaoImpl implements cartItemDao {
 			while (rs.next()) {
 //				System.out.println(rs.getString(4));
 				cart = new CartItem(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getInt(5),
-						rs.getDouble(6), rs.getString(7), rs.getDate(8));
+						rs.getDouble(6), rs.getString(7), rs.getTimestamp(8).toLocalDateTime());
 				invoice.add(cart);
 
 			}

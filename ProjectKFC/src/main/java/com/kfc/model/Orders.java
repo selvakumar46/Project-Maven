@@ -1,8 +1,9 @@
 package com.kfc.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Orders {
+public class Orders implements Serializable{
 	private int orderId;
 	private int productId;
 	private int userId;
@@ -10,8 +11,7 @@ public class Orders {
 	private Double totalPrice;
 	private String productName;
 	private double price;
-	
-	
+
 	public double getPrice() {
 		return price;
 	}
@@ -59,7 +59,6 @@ public class Orders {
 	public void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-	
 
 	public String getProductName() {
 		return productName;
@@ -80,22 +79,12 @@ public class Orders {
 
 	@Override
 	public String toString() {
-		return "orderId=" + orderId + ", productId=" + productId + ", userId=" + userId + ", quantity="
-				+ quantity + ", totalPrice=" + totalPrice ;
+		return "orderId=" + orderId + ", productId=" + productId + ", userId=" + userId + ", quantity=" + quantity
+				+ ", totalPrice=" + totalPrice;
 	}
 
 	public Orders() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Orders(String productName,double price, int Quantity, double totalPrice,int productId) {
-		// TODO Auto-generated constructor stub
-		this.productName=productName;
-		this.price=price;
-		this.quantity=Quantity;
-		this.totalPrice=totalPrice;
-		this.productId = productId;
 	}
 
 	@Override
@@ -114,6 +103,18 @@ public class Orders {
 		Orders other = (Orders) obj;
 		return orderId == other.orderId && productId == other.productId && quantity == other.quantity
 				&& Objects.equals(totalPrice, other.totalPrice) && userId == other.userId;
+	}
+
+	public Orders(int orderId, int productId, int userId, int quantity, Double totalPrice, String productName,
+			double price) {
+		super();
+		this.orderId = orderId;
+		this.productId = productId;
+		this.userId = userId;
+		this.quantity = quantity;
+		this.totalPrice = totalPrice;
+		this.productName = productName;
+		this.price = price;
 	}
 
 }

@@ -1,7 +1,6 @@
 package com.kfc.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,11 +11,13 @@ import javax.servlet.http.HttpSession;
 
 import com.kfc.daoimpl.OrdersDaoImpl;
 import com.kfc.model.Orders;
+import com.kfc.model.Products;
+import com.kfc.model.User;
 
 /**
  * Servlet implementation class InsertCart
  */
-@WebServlet("/cart")
+@WebServlet("/insertCart")
 public class InsertCart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -35,24 +36,20 @@ public class InsertCart extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		PrintWriter pw = response.getWriter();
+//		response.getWriter().append("hello selva: ").append(request.getContextPath());
 		HttpSession session = request.getSession();
-		double price = (double) session.getAttribute("price");
-
-		int productId = (int) session.getAttribute("productId");
-
-//		System.out.println(productId);
-//		int productId=Integer.parseInt(session.getAttribute("productId"));
+		Products products = (Products) session.getAttribute("validateProduct1");
+		User currentUser = (User) session.getAttribute("currentUser");
+		double price = products.getPrice();
+		int productId = products.getProductId();
 		int quantity = Integer.parseInt(request.getParameter("Quantity"));
-
-		int userId = (int) session.getAttribute("userId");
+		int userId = currentUser.getUserId();
 		double totalPrice = quantity * price;
 		Orders cart = new Orders(0, productId, userId, quantity, totalPrice);
 		OrdersDaoImpl orderDao = new OrdersDaoImpl();
 		boolean flag = orderDao.insertOrder(cart);
 		if (flag == true) {
-			response.sendRedirect("showProducts.jsp");
+			response.sendRedirect("showProducts");
 		} else {
 			response.sendRedirect("mainPage.jsp");
 		}

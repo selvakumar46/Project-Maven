@@ -1,15 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>complete</title>
-<style >
-body {
-		background: linear-gradient(to bottom right, #BDB76B, white);
-}
-</style>
+<link rel="stylesheet" href="assets/css/background.css">
+<title>Order Complete</title>
 </head>
 <body>
 	<form action="mainPage.jsp">

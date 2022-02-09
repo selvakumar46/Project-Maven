@@ -1,16 +1,16 @@
 package com.kfc.model;
 
+import java.io.Serializable;
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.Objects;
 
-public class Invoice {
+public class Invoice implements Serializable {
 	private int invoiceId;
 
 	private int userId;
 	private double totalPrice;
 	private String deliveryAdress;
-	
+
 	private Date orderDate;
 
 	public double getTotalPrice() {
@@ -53,15 +53,13 @@ public class Invoice {
 		this.orderDate = orderDate;
 	}
 
-	
-
-	public Invoice(int invoiceId, int userId,double totalPrice, String deliveryAdress,  Date orderDate) {
+	public Invoice(int invoiceId, int userId, double totalPrice, String deliveryAdress, Date orderDate) {
 		super();
 		this.invoiceId = invoiceId;
 		this.userId = userId;
 		this.totalPrice = totalPrice;
 		this.deliveryAdress = deliveryAdress;
-		
+
 		this.orderDate = orderDate;
 	}
 
@@ -90,6 +88,5 @@ public class Invoice {
 		return "Invoice [invoiceId=" + invoiceId + ", userId=" + userId + ", totalPrice=" + totalPrice
 				+ ", deliveryAdress=" + deliveryAdress + ", orderDate=" + orderDate + "]";
 	}
-	
 
 }

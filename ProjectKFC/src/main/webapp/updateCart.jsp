@@ -1,44 +1,18 @@
-<%@page import="com.kfc.model.Products"%>
-<%@page import="com.kfc.daoimpl.ProductDaoImpl"%>
-<%@page import="com.kfc.dao.ProductDao"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
-      <% String pName = request.getParameter("pname"); 
-  ProductDao productDao = new ProductDaoImpl();
-Products product = new Products();
-product.setProductName(pName);
-Products meal = productDao.validateProduct(pName);
-int userId=(int)session.getAttribute("userId");
-%>
-    
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>update cart Kfc</title>
-<style >
-body {
-		background: linear-gradient(to bottom right, #BDB76B, white);
-}
-</style>
+<link rel="stylesheet" href="assets/css/background.css">
 </head>
 <body>
-	
-	
-	<%if (meal!=null){ %>
 	<form action="upateCart" method="post">
 		<div>
-			Enter how many quantity you want: <input type="number" name="quantity" >
-			<%session.setAttribute("price", meal.getPrice()); %>
-			<%session.setAttribute("productId", meal.getProductId()); %>
+			<strong>Enter how many quantity you want:</strong> <input
+				type="number" id="quantity" name="quantity">
 			<button type="submit">Submit</button>
 		</div>
-		
-		
 	</form>
-	
-	<%} %>
-	
 </body>
 </html>

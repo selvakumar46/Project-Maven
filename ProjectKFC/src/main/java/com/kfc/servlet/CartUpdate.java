@@ -1,8 +1,8 @@
 package com.kfc.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import com.kfc.daoimpl.OrdersDaoImpl;
 import com.kfc.model.Orders;
+import com.kfc.model.Products;
+import com.kfc.model.User;
 
 /**
  * Servlet implementation class CartUpdate
@@ -36,25 +38,22 @@ public class CartUpdate extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		PrintWriter pw = response.getWriter();
 		HttpSession session = request.getSession();
-		int userId = (int) session.getAttribute("userId");
+		User user = (User) session.getAttribute("currentUser");
+		int userId = user.getUserId();
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
-//		System.out.println(quantity);
-//		System.out.println(userId);
-		int productId = (int) session.getAttribute("productId");
-
-//		System.out.println(productId);
-		double price = (double) session.getAttribute("price");
-//		System.out.println(price);
+		Products products = (Products) session.getAttribute("meals");
+		int productId = products.getProductId();
+		double price = products.getPrice();
 		double totalPrice = price * quantity;
 		OrdersDaoImpl orderDao = new OrdersDaoImpl();
 		Orders order = new Orders(0, productId, userId, quantity, totalPrice);
 		boolean flag = orderDao.updateOrder(order);
 		if (flag == true) {
-			response.sendRedirect("mainPage.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("ShowCart");
+			rd.forward(request, response);
 		} else {
-			response.sendRedirect("cart.jsp");
+			response.sendRedirect("ShowCart");
 		}
 
 	}

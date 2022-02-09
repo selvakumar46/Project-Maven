@@ -7,78 +7,90 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Register Kfc</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="assets/css/background.css">
 <style>
-body {
-		background: linear-gradient(to bottom right, #BDB76B, white);
+.container {
+	margin-top: 170px;
 }
-.container{
-	margin-top:170px;
-}
+
 label {
-        display: inline-block;
-        width: 155px;
-        text-align: right;
-        margin-left:-60px;
-      }
-      h2{
-	margin-right:-90px; ;
-	margin-top:65px;
+	display: inline-block;
+	width: 155px;
 }
-button{
-	margin-right:-80px; 
+
+h2 {
+	margin-left: 80px;;
+	margin-top: 55px;
 }
-.bold{
-	margin-right:-80px;
+
+button {
+	margin-right: 80px;
 }
-.exception{
-	color:red;
-	backround-color:white;
-	font-size:15px;
-	float:center;
-	margin-right:-60px;
+
+.bold {
+	margin-right: -80px;
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	width: 100%;
+	padding: 20px;
+	border-radius: 3px;
+	border: thin;
+}
+
+.registerform {
+	background-color: whitesmoke;
+	height: 380px;
+	width: 350px;
+	position: absolute;
+	left: 480px;
+	top: 70px;
+	border-radius: 15px;
+	box-shadow: 0 0 5px green;
+	margin-top: 25px;
+}
+
+input {
+	margin-left: 70px;
 }
 </style>
 </head>
 <body>
-	<center>
-		<form action="s1" method="post">
-			<div class="container">
-			<h2><i>Register KFC</i></h2> <br>
-				<label > <b> User Name : </b> </label><input type="text" name="name"
-					pattern="[A-Za-z]{3,}" title="Enter Name max three characters"><br>
-				<br> <label><b>mobile number :</b> </label> <input type="text"
-					name="mobileNumber" pattern="[6-9][0-9]{9}"
-					title="Enter your 10- digit mobile number"><br> <br>
-				<label><b>E Mail : </b></label> <input type="email" name="mailId"
-					pattern="[a-z0-9]+[@][a-z]+[.][a-z]{2,3}"
-					title="Enter your mailId In correctly example:kfc@gmail.com"><br>
-				<br>
-
-				<button type="submit"  class="btn btn-primary" value="SignUp">SignUp</button><br> <b class="bold"> (or)</b>
-				
-
-
+	<div class="registerform">
+		<form action="s1" method="post" class="was-validated">
+			<h2>
+				<em>Register KFC</em>
+			</h2>
+			<br>
+			<div class="mb-1 mt-1">
+				<input type="text" name="name" pattern="[A-Za-z]{3,}" id="name"
+					title="Enter Name max three characters" placeholder="User Name">
 			</div>
+			<div class="mb-1 mt-1">
+				<input type="text" name="mobileNumber" pattern="[6-9][0-9]{9}" id="mobilenumber"
+					title="Enter your 10- digit mobile number"
+					placeholder="Mobile Number">
+			</div>
+			<div class="mb-1 mt-1">
+				<input type="email" name="mailId"
+					pattern="[a-z0-9]+[@][a-z]+[.][a-z]{2,3}" id="mailId"
+					title="Looks like you forgot something"
+					placeholder="Mail Id">
+			</div>
+			<button type="submit" style="margin-left: 125px"
+				class="btn btn-primary" value="SignUp">SignUp</button>
+			<br></br>
 		</form>
-		<a href="login.jsp"><button type="submit" class="btn btn-success" value="SignUp">Login</button></a>
-		<%
-   if(session.getAttribute("UsedNumber") != null){%>
-   
-	  <b> <h1 class="exception"><i>Mobile Number is already registered</i></h1></b><%} %>
-	   
-   <%session.removeAttribute("UsedNumber"); 
-   %>
-   <%
-   if(session.getAttribute("UsedMailId") != null){
-	%>
-   
-	  <b> <h1 class="exception"><i>Mail Id is already registered</i></h1></b><%} %>
-	   
-   <%session.removeAttribute("UsedNumber"); 
-   %>
-	</center>
+		<a href="login.jsp"><button type="submit" class="btn btn-success"
+				style="margin-left: 130px" value="SignUp">Login</button></a>
+	</div>
 </body>
 </html>
 

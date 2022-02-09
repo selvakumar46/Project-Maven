@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.kfc.dao.UserDao;
 import com.kfc.model.User;
@@ -11,50 +13,44 @@ import com.kfc.util.ConnectionUtil;
 
 public class UserDaoImpl implements UserDao {
 	public boolean insertUser(User user) {
-		User user1 = new User();
 		String insertQuery = "insert into user_kfc(user_name,mobile_number,mail_id)values(?,?,?)";
-		ConnectionUtil conect = new ConnectionUtil();
-		Connection con = conect.getDBConnection();
-		PreparedStatement pst = null;
+		Connection con = ConnectionUtil.getDBConnection();
+		PreparedStatement pstmt = null;
 		try {
-			pst = con.prepareStatement(insertQuery);
-//			System.out.println(user.getUserName());
-			pst.setString(1, user.getUserName());
-			pst.setLong(2, user.getMobileNumber());
-			pst.setString(3, user.getMailId());
-			pst.executeUpdate();
-//			System.out.println(" Registered successfully");
+			pstmt = con.prepareStatement(insertQuery);
+			pstmt.setString(1, user.getUserName());
+			pstmt.setLong(2, user.getMobileNumber());
+			pstmt.setString(3, user.getMailId());
+			pstmt.executeUpdate();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
-//			System.out.println("Value not added");
-
+		} finally {
+			ConnectionUtil.close(pstmt, con);
 		}
 		return false;
 	}
 
 	public User validateUser(User user) {
-		// TODO Auto-generated method stub
-		// String validateQuery="select * from user_kfc where mail_id=
-		// "+login.getMailId()+"' and mobile_number="+login.getMobileNumber();
-		Connection con = null;
 		User logUser = null;
-		PreparedStatement pstmt = null;
-		con = ConnectionUtil.getDBConnection();
+		ResultSet rs = null;
 		String query = "select user_id,user_name,mail_id,mobile_number,role_type from user_kfc where mail_id= ? and mobile_number=?";
+		Connection con = ConnectionUtil.getDBConnection();
+		PreparedStatement pstmt = null;
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, user.getMailId());
 			pstmt.setLong(2, user.getMobileNumber());
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				logUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getLong(4), rs.getString(5));
 			}
 			return logUser;
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(pstmt, con, rs);
 		}
 
 		return logUser;
@@ -63,62 +59,54 @@ public class UserDaoImpl implements UserDao {
 	public User updateUser(User user1) {
 		User user2 = new User();
 		String updateQuery = "update user_kfc set mail_id=? where mobile_number=? ";
-//		System.out.println(user1.getMailId());
-//		System.out.println(user1.getMobileNumber());
-		ConnectionUtil conect = new ConnectionUtil();
-		Connection con = conect.getDBConnection();
-		PreparedStatement pstmt;
+		Connection con = ConnectionUtil.getDBConnection();
+		PreparedStatement pstmt = null;
 		try {
 			pstmt = con.prepareStatement(updateQuery);
 			pstmt.setString(1, user1.getMailId());
 			pstmt.setLong(2, user1.getMobileNumber());
-			int i = pstmt.executeUpdate();
-//			System.out.println(i + " Row updated");
+			pstmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(pstmt, con);
 		}
-
 		return user2;
-
 	}
 
 	public User delUser(User deleteUser) {
 
 		String delQuery = " delete  from user_kfc where user_id=?";
 		User user = new User();
-		ConnectionUtil conect = new ConnectionUtil();
-		Connection con = conect.getDBConnection();
-		PreparedStatement pstmt;
+		Connection con = ConnectionUtil.getDBConnection();
+		PreparedStatement pstmt = null;
 		try {
 			pstmt = con.prepareStatement(delQuery);
 			pstmt.setInt(1, deleteUser.getUserId());
-			int i = pstmt.executeUpdate();
-//			System.out.println(i + "user delete Successfully");
-
+			pstmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(pstmt, con);
 		}
 		return user;
-
 	}
 
 	public boolean insertAdmin(User admin) {
+		PreparedStatement pstmt = null;
 		String insert = "insert into user_kfc (user_name,mail_id,mobile_number,role_type) values (?,?,?,'Admin')";
-		User user = new User();
-		ConnectionUtil conect = new ConnectionUtil();
-		Connection con = conect.getDBConnection();
+		Connection con = ConnectionUtil.getDBConnection();
 		try {
-			PreparedStatement pstmt = con.prepareStatement(insert);
+			pstmt = con.prepareStatement(insert);
 			pstmt.setString(1, admin.getUserName());
 			pstmt.setString(2, admin.getMailId());
 			pstmt.setLong(3, admin.getMobileNumber());
-			int i = pstmt.executeUpdate();
+			pstmt.executeUpdate();
 			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(pstmt, con);
 		}
 		return false;
 	}
@@ -127,12 +115,13 @@ public class UserDaoImpl implements UserDao {
 		Connection con = null;
 		User logUser = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		con = ConnectionUtil.getDBConnection();
 		String query = "select user_id,user_name,mail_id,mobile_number,role_type from user_kfc where  mobile_number=?";
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setLong(1, user.getMobileNumber());
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				logUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getLong(4), rs.getString(5));
 //				System.out.println(user);
@@ -141,41 +130,65 @@ public class UserDaoImpl implements UserDao {
 			return logUser;
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(pstmt, con, rs);
 		}
 
 		return logUser;
 	}
 
 	public User validateUserMail(User user) {
-		Connection con = null;
 		User logUser = null;
-		PreparedStatement pstmt = null;
-		con = ConnectionUtil.getDBConnection();
+		ResultSet rs = null;
 		String query = "select user_id,user_name,mail_id,mobile_number,role_type from user_kfc where mail_id=?";
+		Connection con = ConnectionUtil.getDBConnection();
+		PreparedStatement pstmt = null;
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, user.getMailId());
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				logUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getLong(4), rs.getString(5));
-//				System.out.println(logUser);
-
 			}
 			return logUser;
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(pstmt, con, rs);
 		}
 
 		return logUser;
 	}
 
+	public List<User> showUser() {
+		List<User> allUser = new ArrayList<>();
+		User user = null;
+		ResultSet rs = null;
+		String query = "select user_id,user_name,mail_id,mobile_number,role_type from user_kfc order by user_id";
+		Connection con = ConnectionUtil.getDBConnection();
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = con.prepareStatement(query);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getLong(4), rs.getString(5));
+				allUser.add(user);
+			}
+			return allUser;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			ConnectionUtil.close(pstmt, con,rs );
+		}
+		return allUser;
+	}
+
 	@Override
 	public User validateUser(String logMail, Long logNumber) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

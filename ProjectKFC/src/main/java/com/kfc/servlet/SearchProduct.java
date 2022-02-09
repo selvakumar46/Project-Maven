@@ -1,10 +1,9 @@
 package com.kfc.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.ResultSet;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,20 +37,17 @@ public class SearchProduct extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		PrintWriter pw = response.getWriter();
-		HttpSession session = request.getSession();
-		String productName = request.getParameter("search");
-//		System.out.println(productName);
+		String productName = request.getParameter("search").toLowerCase();
 		Products search = new Products(0, productName, null, 0, null, null, null, null);
 		ProductDaoImpl productDao = new ProductDaoImpl();
-		List<Products> rs = productDao.serachProduct(productName);
-		session.setAttribute("searchProduct", rs);
-//		String rs1=(String)session.getAttribute("searchProduct") ;
-//		System.out.println(rs);
+		List<Products> rs = productDao.searchProduct(productName);
+		request.setAttribute("searchProduct", rs);
 		if (rs != null) {
-			response.sendRedirect("SearchProduct.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("searchProduct.jsp");
+			rd.forward(request, response);
 		} else {
-			response.sendRedirect("mainPage.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("mainPage.jsp");
+			rd.forward(request, response);
 		}
 	}
 

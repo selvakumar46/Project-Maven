@@ -1,10 +1,12 @@
 package com.kfc.model;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class CartItem {
+public class CartItem implements Serializable{
 	private int cartId;
 	private int productId;
 	private int userId;
@@ -12,66 +14,83 @@ public class CartItem {
 	private int quantity;
 	private double totalPrice;
 	private String status;
-	private Date orderDate;
-	private LocalDate orderDate1;
-	
-	
-	public LocalDate getOrderDate1() {
+	private LocalDateTime orderDate;
+	private Date orderDate1;
+
+	public Date getOrderDate1() {
 		return orderDate1;
 	}
-	public void setOrderDate1(LocalDate orderDate1) {
+
+	public void setOrderDate1(Date orderDate1) {
 		this.orderDate1 = orderDate1;
 	}
+
 	public int getCartId() {
 		return cartId;
 	}
+
 	public void setCartId(int cartId) {
 		this.cartId = cartId;
 	}
+
 	public int getProductId() {
 		return productId;
 	}
+
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
+
 	public int getUserId() {
 		return userId;
 	}
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+
 	public String getProductName() {
 		return productName;
 	}
+
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
+
 	public int getQuantity() {
 		return quantity;
 	}
+
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
 	public double getTotalPrice() {
 		return totalPrice;
 	}
+
 	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+
 	public String getStatus() {
 		return status;
 	}
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Date getOrderDate() {
+
+	public LocalDateTime getOrderDate() {
 		return orderDate;
 	}
-	public void setOrderDate(Date orderDate) {
+
+	public void setOrderDate(LocalDateTime orderDate) {
 		this.orderDate = orderDate;
 	}
+
 	public CartItem(int cartId, int productId, int userId, String productName, int quantity, double totalPrice,
-			String status, Date orderDate) {
+			String status, LocalDateTime orderDate) {
 		super();
 		this.cartId = cartId;
 		this.productId = productId;
@@ -82,23 +101,23 @@ public class CartItem {
 		this.status = status;
 		this.orderDate = orderDate;
 	}
-	public CartItem(LocalDate date) {
-		// TODO Auto-generated constructor stub
-		this.orderDate1=date;
+
+	public CartItem(Date date) {
+		this.orderDate1 = date;
 	}
-	
+
 	public CartItem() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+
 	public CartItem(double double1) {
-		// TODO Auto-generated constructor stub
-		this.totalPrice=double1;
+		this.totalPrice = double1;
 	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(cartId, orderDate, productId, productName, quantity, status, totalPrice, userId);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -114,19 +133,18 @@ public class CartItem {
 				&& Double.doubleToLongBits(totalPrice) == Double.doubleToLongBits(other.totalPrice)
 				&& userId == other.userId;
 	}
+
 	@Override
 	public String toString() {
 		return "CartItem [cartId=" + cartId + ", productId=" + productId + ", userId=" + userId + ", productName="
 				+ productName + ", quantity=" + quantity + ", totalPrice=" + totalPrice + ", status=" + status
 				+ ", orderDate=" + orderDate + "]";
 	}
-	public double sumOfPrice(LocalDate date, int userId2) {
-		// TODO Auto-generated method stub
-		this.orderDate1=date;
-		this.userId=userId2;
+
+	public double sumOfPrice(Date date, int userId2) {
+		this.orderDate1 = date;
+		this.userId = userId2;
 		return 0;
 	}
-	
-	
 
 }
